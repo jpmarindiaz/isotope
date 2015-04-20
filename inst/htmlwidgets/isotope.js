@@ -6,6 +6,8 @@ HTMLWidgets.widget({
     initialize: function(el, width, height) {
         
         $(el).append('<div id="controls"></div>');
+        //$('#controls').append('<div id="filter"></div>')
+        //$('#controls').append('<div id="sort"></div>')
         $(el).append('<div id="isotope-items"></div>');
         var iso = new Isotope( '#isotope-items', {
                                 itemSelector: '.element-item',
@@ -26,13 +28,13 @@ HTMLWidgets.widget({
     },
 
     resize: function(el, width, height, instance) {
-
-
+      instance.iso.arrange();
     },
 
     renderValue: function(el, x, instance) {
 
-        $("#controls").append(x.buttons);
+        $("#controls").append(x.filterBtns);
+        $("#controls").append(x.sortBtns);
         $("#isotope-items").append(x.items);
 
 // console.log(instance.iso)
@@ -47,6 +49,7 @@ instance.iso.arrange();
   // bind filter button click
   $('#filters').on( 'click', 'button', function() {
     var filterValue = $( this ).attr('data-filter');
+    console.log(filterValue)
     instance.iso.arrange({ filter: filterValue});
   });
 

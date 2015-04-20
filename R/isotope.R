@@ -7,9 +7,12 @@
 #' @export
 isotope <- function(message, width = NULL, height = NULL) {
 
-  buttons <- '
+  filterBtns <- '
   <h2>Filter</h2>
-<div id="filters" class="button-group">  <button class="button is-checked" data-filter="*">show all</button>
+<div id="filters" class="button-group">
+  <button class="button is-checked" data-filter="*">show all</button>
+  <button class="button" data-filter=".tags.visualization">visualization</button>
+  <button class="button" data-filter=".tags.tables">tables</button>
   <button class="button" data-filter=".metal">metal</button>
   <button class="button" data-filter=".transition">transition</button>
   <button class="button" data-filter=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
@@ -17,8 +20,9 @@ isotope <- function(message, width = NULL, height = NULL) {
   <button class="button" data-filter=".metal:not(.transition)">metal but not transition</button>
   <button class="button" data-filter="numberGreaterThan50">number > 50</button>
   <button class="button" data-filter="ium">name ends with &ndash;ium</button>
-  </div>
+  </div>'
 
+  sortBtns <-'
   <h2>Sort</h2>
   <div id="sorts" class="button-group">  <button class="button is-checked" data-sort-by="original-order">original order</button>
   <button class="button" data-sort-by="name">name</button>
@@ -140,11 +144,19 @@ isotope <- function(message, width = NULL, height = NULL) {
   </div>
   '
 
+  l <- yaml.load_file(system.file("data/htmlwidgets.yaml",package="isotope"))
+  d <- list_to_df(l)
+
+  filterCols <- c('tags','status','author')
+  items <- htmlItems(d,filterCols)
+  filterBtns <- filterBtnHtml(d,filterCols)
+
 
   # forward options using x
   x = list(
     message = message,
-    buttons = buttons,
+    filterBtns = filterBtns,
+    sortBtns = sortBtns,
     items = items
   )
 

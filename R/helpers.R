@@ -1,70 +1,68 @@
 #' @export
 #'
-htmlItems <- function(d, tpl){
+htmlItems <- function(d, filterCols, elemTpl = NULL){
+
+  elemTplStd <- '
+<div class="container">
+<h1>{{name}}</h1>
+<p>{{url}}</p>
+<p>{{githubUrl}}</p>
+</div>'
+  elemTpl <- elemTpl %||% elemTplStd
 
 
   ## TODO
   #Apply Filter classes
-#  filterCols <- c('tags','status','author')
-#   lFilters <- lapply(filterCols,function(col){
-#     catFilters <-lapply(d[,col],function(x){
-#       x <- nullToEmpty(x, empty="empty")
-#       filterRowValues <- c(col,strsplit(x,",")[[1]])
-#       filters <- paste0('.',filterRowValues, collapse=", ")
-#       filters
-#     })
-#     catFilters
-#   })
-#   unique(unlist(lFilters))
+   #filterCols <- c('tags','status','author')
 
-  tpl <- '
-<div class="container">
-<h1>{{name}}</h1>
-<p>{{url}}</p>
-</div>'
-  tpl <- paste0('<div class="element-item">\n',tpl,'</div>')
+   lFilters <- lapply(filterCols,function(col){
+      catFilters <-lapply(d[,col],function(x){
+        x <- nullToEmpty(x, empty="empty")
+        filterRowValues <- c(col,strsplit(x,",")[[1]])
+        elemClass <- paste(filterRowValues,collapse = " ")
+      })
+      catFilters
+    })
+  dtmp <- as.data.frame(mapply(c,lFilters))
+  elem <- unite_(dtmp,"classes",names(dtmp),sep=" ")
+  elemClass <- paste("element-item",elem$classes)
+
+
+  tpl <- paste0('<div class="{{itemClasses}}">',elemTpl,'\n</div>')
+  d$itemClasses <- elemClass
   whisker.render.df(tpl,d)
+
 }
 
 #' @export
 #'
-filterButtons <- function(d, filterCols = NULL){
-
-  filterCols <- c('tags','status','author')
+filterBtnHtml <- function(d, filterCols = NULL){
+  #filterCols <- c('tags','status','author')
   filterCols <- filterCols %||% names(d)
-
-
   buttons <- lapply(filterCols, function(col){
-    lapply(d[,col],function(x){
+    l <- lapply(d[,col],function(x){
       x <- nullToEmpty(x, empty="empty")
       #filterRowValues <- paste(col,strsplit(x,",")[[1]],sep"-")
       filterRowValues <- c(strsplit(x,",")[[1]])
-      paste(col,filterRowValues,sep="-")
+      paste0(".",c(col,filterRowValues),collapse = "")
       })
+    l
     })
   buttons <- unique(unlist(buttons))
 
-  btnHtml <- lapply(buttons,function(b){
-    tags$button(b,`data-filter`= paste0(".",b))
+  btnsHtml <- lapply(buttons,function(b){
+    tags$button(b,class="button",`data-filter`= b)
   })
-  btnHtml <- Filter(function(b){!grepl("empty",b)},btnHtml)
-  btnShowAll <- tags$button('tags',class="is-checked",`data-filter`="*")
-  btnHtml <- c(btnShowAll, btnHtml)
-
-renderTags(btnHtml)
-
-
-  tags$button('tags',`data-filter`=filter)
-
-  #<button class="button is-checked" data-filter="*">show all</button>
-  #tpl <- '<button class="button" data-filter=".metal">metal</button>'
-
-
-
-tpl <- paste0('<h2>Filter</h2>
-<div id="filters" class="button-group">',tpl,'</div>')
-  whisker.render.df(tpl,d)
+  btnsHtml <- Filter(function(b){!grepl("empty",b)},btnsHtml)
+  filterDiv <- tags$div(id="filters",class="button-group",
+                       tags$button('All',class="is-checked",`data-filter`="*"),
+                       btnsHtml
+                       )
+  doRenderTags(filterDiv)
 }
 
-btn$attribs$class
+sortCols <- c("name","author")
 
+sortBtnHtml <- function(d,sortCols){
+
+}
