@@ -61,8 +61,4 @@ filterBtnHtml <- function(d, filterCols = NULL){
   doRenderTags(filterDiv)
 }
 
-sortCols <- c("name","author")
 
-sortBtnHtml <- function(d,sortCols){
-
-}
