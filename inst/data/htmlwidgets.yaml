@@ -1,0 +1,388 @@
+-
+    name: datamaps
+    url: https://github.com/htmlwidgets/datamaps
+    jsLibIds: datamaps,d3
+    githubUrl: https://github.com/htmlwidgets/datamaps
+    tags: visualization,maps
+    status: OK
+    example: 
+    documented:
+    author: ramnathv
+-
+    name: rChartsCalmap
+    url: https://github.com/ramnathv/rChartsCalmap
+    jsLibIds: d3
+    githubUrl: https://github.com/ramnathv/rChartsCalmap
+    tags: visualization,calendar,heatmap
+    status: OK
+    example: 
+    documented:
+    author: ramnathv
+-
+    name: leaflet
+    url: http://rstudio.github.io/leaflet/
+    jsLibIds: leaflet
+    githubUrl: https://github.com/rstudio/leaflet
+    tags: visualization,maps
+    status: OK
+    example: 
+    documented:
+    author: rstudio 
+-
+    name: DT
+    url: http://rstudio.github.io/DT/
+    jsLibIds: DT
+    githubUrl: https://github.com/rstudio/DT
+    tags: tables
+    status: OK
+    example: 
+    documented:
+    author: rstudio 
+-
+    name: dygraphs
+    url: http://rstudio.github.io/dygraphs/
+    jsLibIds: dygraphs
+    githubUrl: https://github.com/rstudio/dygraphs
+    tags: visualization,timeseries
+    status: OK
+    example: 
+    documented:
+    author: rstudio 
+-
+    name: metricsgraphics
+    url: http://hrbrmstr.github.io/metricsgraphics/
+    jsLibIds: metricsgraphicsjs,d3
+    githubUrl: https://github.com/hrbrmstr/metricsgraphs
+    tags: visualization,general
+    status: OK
+    example: 
+    documented:
+    author: hrbrmstr
+
+-
+    name: streamgraph
+    url: http://hrbrmstr.github.io/streamgraph/
+    jsLibIds: d3
+    githubUrl: https://github.com/hrbrmstr/streamgraph
+    tags: visualization,general
+    status: OK
+    example: 
+    documented:
+    author: hrbrmstr
+
+-
+    name: networkD3
+    url: http://christophergandrud.github.io/networkD3/
+    jsLibIds: d3
+    githubUrl: http://github.com/christophergandrud/networkD3/
+    tags: visualization,networks
+    status: OK
+    example: 
+    documented:
+    author: christophergandrud
+-
+    name: rthreejs
+    url: https://github.com/bwlewis/rthreejs
+    jsLibIds: threejs
+    githubUrl: https://github.com/bwlewis/rthreejs
+    tags: visualization,3D
+    status: OK
+    example: 
+    documented:
+    author: bwlewis
+-
+    name: DiagrammeR
+    url: http://rich-iannone.github.io/DiagrammeR/
+    jsLibIds: d3,viz,mermaid
+    githubUrl: http://rich-iannone.github.io/DiagrammeR/
+    tags: visualization,diagram
+    status: OK
+    example: 
+    documented:
+    author: rich-iannone
+-
+    name: sigmaGraph
+    url: https://github.com/jpmarindiaz/sigmaGraph
+    jsLibIds: sigma
+    githubUrl: https://github.com/jpmarindiaz/sigmaGraph
+    tags: visualization,networks
+    status: experimental
+    example: 
+    documented:
+    author: jpmarindiaz 
+-
+    name: bubbleCloud
+    url: https://github.com/jpmarindiaz/bubbleCloud
+    jsLibIds: sigma
+    githubUrl: https://github.com/jpmarindiaz/bubbleCloud
+    tags: visualization,bubbles
+    status: experimental
+    example: 
+    documented:
+    author: jpmarindiaz 
+-
+    name: d3plus
+    url: https://github.com/jpmarindiaz/d3plus
+    jsLibIds: d3plus,d3
+    githubUrl: https://github.com/jpmarindiaz/d3plus
+    tags: visualization,networks
+    status: experimental
+    example: 
+    documented:
+    author: jpmarindiaz 
+-
+    name: isotope
+    url: https://github.com/jpmarindiaz/isotope
+    jsLibIds: isotope
+    githubUrl: https://github.com/jpmarindiaz/isotope
+    tags: grid
+    status: experimental
+    example: 
+    documented:
+    author: jpmarindiaz 
+-
+    name: D3TableFilter
+    url: https://github.com/ThomasSiegmund/D3TableFilter
+    jsLibIds: tableFilter,d3
+    githubUrl: https://github.com/ThomasSiegmund/D3TableFilter
+    tags: tables
+    status: OK
+    example: 
+    documented:
+    author: ThomasSiegmund 
+-
+    name: rhandsontable
+    url: https://github.com/jrowen/rhandsontable/
+    jsLibIds: handsontable
+    githubUrl: https://github.com/jrowen/rhandsontable/
+    tags: tables
+    status: experimental
+    example: 
+    documented:
+    author: jrowen 
+-
+    name: rcdimple
+    url: https://github.com/timelyportfolio/rcdimple
+    jsLibIds: dimple,d3
+    githubUrl: https://github.com/timelyportfolio/rcdimple
+    tags: visualization,general
+    status: OK
+    example: http://www.buildingwidgets.com/blog/2015/3/18/week-11-dimple-as-htmlwidget
+    documented:
+    author: timelyportfolio 
+-
+    name: sortableR
+    url: https://github.com/timelyportfolio/sortableR
+    jsLibIds: sortablejs,d3
+    githubUrl: https://github.com/timelyportfolio/sortableR
+    tags: visualization,general
+    status: OK
+    example: http://www.buildingwidgets.com/blog/2015/3/18/week-11-dimple-as-htmlwidget
+    documented:
+    author: timelyportfolio 
+-
+    name: parcoords
+    url: https://github.com/timelyportfolio/parcoords
+    jsLibIds: parcoords,d3
+    githubUrl: https://github.com/timelyportfolio/parcoords
+    tags: visualization,general
+    status: OK
+    example: http://www.buildingwidgets.com/blog/2015/3/18/week-11-dimple-as-htmlwidget
+    documented:
+    author: timelyportfolio 
+-
+    name: listviewer
+    url: https://github.com/timelyportfolio/listviewer
+    jsLibIds: listviewer,d3
+    githubUrl: https://github.com/timelyportfolio/listviewer
+    tags: visualization,general
+    status: OK
+    example: http://www.buildingwidgets.com/blog/2015/3/18/week-11-dimple-as-htmlwidget
+    documented:
+    author: timelyportfolio 
+-
+    name: svgPanZoom
+    url: https://github.com/timelyportfolio/svgPanZoom
+    jsLibIds: svgPanZoom
+    githubUrl: https://github.com/timelyportfolio/svgPanZoom
+    tags: visualization,general
+    status: OK
+    example: http://www.buildingwidgets.com/blog/2015/3/18/week-11-dimple-as-htmlwidget
+    documented:
+    author: timelyportfolio 
+-
+    name: exportwidget
+    url: https://github.com/timelyportfolio/exportwidget
+    jsLibIds: exportwidget
+    githubUrl: https://github.com/timelyportfolio/exportwidget
+    tags: visualization,general
+    status: OK
+    example: http://www.buildingwidgets.com/blog/2015/3/18/week-11-dimple-as-htmlwidget
+    documented:
+    author: timelyportfolio 
+-
+    name: trailr
+    url: https://github.com/timelyportfolio/trailr
+    jsLibIds: trailr
+    githubUrl: https://github.com/timelyportfolio/trailr
+    tags: visualization,general
+    status: OK
+    example: http://www.buildingwidgets.com/blog/2015/3/18/week-11-dimple-as-htmlwidget
+    documented:
+    author: timelyportfolio 
+-
+    name: imageR
+    url: https://github.com/timelyportfolio/imageR
+    jsLibIds: imageR
+    githubUrl: https://github.com/timelyportfolio/imageR
+    tags: visualization,general
+    status: OK
+    example: http://www.buildingwidgets.com/blog/2015/3/18/week-11-dimple-as-htmlwidget
+    documented:
+    author: timelyportfolio 
+-
+    name:
+    url:
+    jsLibIds:
+    githubUrl: https://github.com/yutannihilation/chartist
+    tags:
+    status:
+    example:
+    documented:
+    author:
+-
+    name:
+    url:
+    jsLibIds:
+    githubUrl: https://github.com/sdwfrost/phylowidget
+    tags:
+    status:
+    example:
+    documented:
+    author:
+-
+    name:
+    url:
+    jsLibIds:
+    githubUrl: https://github.com/jalapic/sweep
+    tags:
+    status:
+    example:
+    documented:
+    author:
+-
+    name:
+    url:
+    jsLibIds:
+    githubUrl: https://github.com/kbroman/testjs
+    tags:
+    status:
+    example:
+    documented:
+    author:
+-
+    name:
+    url:
+    jsLibIds:
+    githubUrl: https://github.com/jcizel/highchartR
+    tags:
+    status:
+    example:
+    documented:
+    author:
+-
+    name:
+    url:
+    jsLibIds:
+    githubUrl: https://github.com/homeaway/great-circles 
+    tags:
+    status:
+    example:
+    documented:
+    author:
+-
+    name:
+    url:
+    jsLibIds:
+    githubUrl: https://github.com/Bart6114/sparklines
+    tags:
+    status:
+    example:
+    documented:
+    author:
+-
+    name:
+    url:
+    jsLibIds:
+    githubUrl: https://github.com/jcizel/highchartR
+    tags:
+    status:
+    example:
+    documented:
+    author:
+-
+    name:
+    url:
+    jsLibIds:
+    githubUrl: https://github.com/adymimos/rWordCloud
+    tags:
+    status:
+    example:
+    documented:
+    author:
+-
+    name:
+    url:
+    jsLibIds:
+    githubUrl: https://github.com/HarlanH/c3r 
+    tags:
+    status:
+    example:
+    documented:
+    author:
+-
+    name:
+    url:
+    jsLibIds:
+    githubUrl: https://github.com/yutannihilation/dcStockR
+    tags:
+    status:
+    example:
+    documented:
+    author:
+-
+    name:
+    url:
+    jsLibIds:
+    githubUrl: https://github.com/jcizel/scatterMatrixD3
+    tags:
+    status:
+    example:
+    documented:
+    author:
+-
+    name:
+    url:
+    jsLibIds:
+    githubUrl: https://github.com/timelyportfolio/plottableR
+    tags:
+    status:
+    example:
+    documented:
+    author:
+-
+    name:
+    url:
+    jsLibIds:
+    githubUrl: 
+    tags:
+    status:
+    example:
+    documented:
+    author:
+
+
+
+
+
+

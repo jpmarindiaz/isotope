@@ -1,0 +1,11 @@
+dependencies:
+  - name: jquery
+    version: 2.1.1
+    src: "htmlwidgets/lib/jquery-v2.1.1"
+    script: jquery.min.js
+  - name: isotope
+    version: 2.2.0
+    src: "htmlwidgets/lib/isotope-v2.2.0"
+    script: isotope.pkgd.min.js
+
+
