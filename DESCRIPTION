@@ -5,6 +5,9 @@ Date: 2015-03-20
 Author: Juan Pablo Marín Díaz
 Maintainer: Juan Pablo Marín Díaz <jpmarindiaz@gmail.com>
 Description: Htmlwidget for isotope (http://isotope.metafizzy.co/)
-Depends: R (>= 3.1.3)
+Depends:
+  R (>= 3.1.3),
+  tidyr,
+  htmlwidgets
 License: GPL-3
 LazyData: true

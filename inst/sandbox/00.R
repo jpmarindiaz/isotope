@@ -5,6 +5,7 @@ library(htmlwidgets)
 
 document()
 devtools::install()
+
 library(isotope)
 isotope("hola")
 
@@ -18,12 +19,9 @@ d <- list_to_df(l)
 filterCols <- c('tags','status','author')
 cat(htmlItems(d, filterCols))
 cat(filterBtnHtml(d,filterCols))
+cat(sortBtnHtml(d,sortCols))
 
-sortCols <- c("name","author")
 
-sortBtnHtml <- function(d,sortCols){
-
-}
 
 
 

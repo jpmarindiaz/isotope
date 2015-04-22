@@ -24,9 +24,10 @@ isotope <- function(message, width = NULL, height = NULL) {
 
   sortBtns <-'
   <h2>Sort</h2>
-  <div id="sorts" class="button-group">  <button class="button is-checked" data-sort-by="original-order">original order</button>
+  <div id="sorts" class="button-group">
+  <button class="button is-checked" data-sort-by="original-order">original order</button>
   <button class="button" data-sort-by="name">name</button>
-  <button class="button" data-sort-by="symbol">symbol</button>
+  <button class="button" data-sort-by="url">url</button>
   <button class="button" data-sort-by="number">number</button>
   <button class="button" data-sort-by="weight">weight</button>
   <button class="button" data-sort-by="category">category</button>
@@ -151,12 +152,18 @@ isotope <- function(message, width = NULL, height = NULL) {
   items <- htmlItems(d,filterCols)
   filterBtns <- filterBtnHtml(d,filterCols)
 
+  sortCols <- c("name","author")
+  sortData <- as.list(paste0(".",sortCols))
+  names(sortData) <- sortCols
+  sortBtns <- sortBtnHtml(d,sortCols)
+
 
   # forward options using x
   x = list(
     message = message,
     filterBtns = filterBtns,
     sortBtns = sortBtns,
+    sortData = sortData,
     items = items
   )
 

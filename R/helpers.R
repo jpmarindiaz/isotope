@@ -4,9 +4,10 @@ htmlItems <- function(d, filterCols, elemTpl = NULL){
 
   elemTplStd <- '
 <div class="container">
-<h1>{{name}}</h1>
-<p>{{url}}</p>
-<p>{{githubUrl}}</p>
+<h1 class="name">{{name}}</h1>
+<p class="url">{{url}}</p>
+<p class="author">{{author}}</p>
+<p class="githubUrl">{{githubUrl}}</p>
 </div>'
   elemTpl <- elemTpl %||% elemTplStd
 
@@ -61,4 +62,17 @@ filterBtnHtml <- function(d, filterCols = NULL){
   doRenderTags(filterDiv)
 }
 
-
+#' @export
+sortBtnHtml <- function(d,sortCols = NULL){
+  sortCols <- sortCols %||% names(d)
+  buttons <- sortCols
+  #<button class="button" data-sort-by="name">name</button>
+  btnsHtml <- lapply(buttons,function(b){
+    tags$button(b,class="button",`data-sort-by`= b)
+  })
+  sortDiv <- tags$div(id="sorts",class="button-group",
+                      tags$button("original-order",class="button",`data-sort-by`= "original-order"),
+                      btnsHtml
+  )
+  doRenderTags(sortDiv)
+}
