@@ -9,17 +9,24 @@ isotope <- function(message, width = NULL, height = NULL) {
 
   filterBtns <- '
   <h2>Filter</h2>
+
 <div id="filters" class="button-group">
-  <button class="button is-checked" data-filter="*">show all</button>
-  <button class="button" data-filter=".tags.visualization">visualization</button>
-  <button class="button" data-filter=".tags.tables">tables</button>
-  <button class="button" data-filter=".metal">metal</button>
-  <button class="button" data-filter=".transition">transition</button>
+<a href="#!" class="button" data-filter="*">All</a>
+<div class="relative inline-block" data-disclosure>
+  <button type="button" class="button">
+    Visualization &#9662;
+  </button>
+  <!--<div data-details class="fixed top-0 right-0 bottom-0 left-0"></div>-->
+  <div data-details class="absolute left-0 mt1 nowrap white bg-blue rounded">
+    <a href="#!" class="button block button-transparent filterBtn" data-filter=".tags.visualization">viz</a>
+<a href="#!" class="button block button-transparent filterBtn" data-filter=".tags.tables">tables</a>
+  </div>
+</div>
+<!--
+
   <button class="button" data-filter=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
   <button class="button" data-filter=":not(.transition)">not transition</button>
-  <button class="button" data-filter=".metal:not(.transition)">metal but not transition</button>
-  <button class="button" data-filter="numberGreaterThan50">number > 50</button>
-  <button class="button" data-filter="ium">name ends with &ndash;ium</button>
+-->
   </div>'
 
   sortBtns <-'
@@ -148,15 +155,16 @@ isotope <- function(message, width = NULL, height = NULL) {
   l <- yaml.load_file(system.file("data/htmlwidgets.yaml",package="isotope"))
   d <- list_to_df(l)
 
-  filterCols <- c('tags','status','author')
+#   filterCols <- c('tags','status','author')
+#   filterBtns <- filterBtnHtml(d,filterCols)
+
   items <- htmlItems(d,filterCols)
-  filterBtns <- filterBtnHtml(d,filterCols)
 
   sortCols <- c("name","author")
   sortData <- as.list(paste0(".",sortCols))
   names(sortData) <- sortCols
   sortBtns <- sortBtnHtml(d,sortCols)
-
+  sortBtns <- ""
 
   # forward options using x
   x = list(

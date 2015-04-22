@@ -3,7 +3,7 @@
 htmlItems <- function(d, filterCols, elemTpl = NULL){
 
   elemTplStd <- '
-<div class="container">
+<div class="container m4 p2 bg-silver">
 <h1 class="name">{{name}}</h1>
 <p class="url">{{url}}</p>
 <p class="author">{{author}}</p>
@@ -49,6 +49,12 @@ filterBtnHtml <- function(d, filterCols = NULL){
       })
     l
     })
+#   names(buttons) <- filterCols
+#
+#   Map(function(b1){
+#
+#   },buttons)
+
   buttons <- unique(unlist(buttons))
 
   btnsHtml <- lapply(buttons,function(b){
@@ -56,8 +62,9 @@ filterBtnHtml <- function(d, filterCols = NULL){
   })
   btnsHtml <- Filter(function(b){!grepl("empty",b)},btnsHtml)
   filterDiv <- tags$div(id="filters",class="button-group",
-                       tags$button('All',class="is-checked",`data-filter`="*"),
-                       btnsHtml
+                        #tags$button('All',class="is-checked",`data-filter`="*"),
+                        tags$button('All',class="button",`data-filter`="*"),
+                        btnsHtml
                        )
   doRenderTags(filterDiv)
 }
