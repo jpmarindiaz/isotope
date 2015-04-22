@@ -12,14 +12,15 @@ isotope <- function(message, width = NULL, height = NULL) {
 
 <div id="filters" class="button-group">
 <a href="#!" class="button" data-filter="*">All</a>
+<a href="#!" class="button" data-filter=".tags.tables">tables</a>
 <div class="relative inline-block" data-disclosure>
   <button type="button" class="button">
     Visualization &#9662;
   </button>
   <!--<div data-details class="fixed top-0 right-0 bottom-0 left-0"></div>-->
   <div data-details class="absolute left-0 mt1 nowrap white bg-blue rounded">
-    <a href="#!" class="button block button-transparent filterBtn" data-filter=".tags.visualization">viz</a>
-<a href="#!" class="button block button-transparent filterBtn" data-filter=".tags.tables">tables</a>
+    <a href="#!" class="button block button-transparent" data-filter=".tags.visualization">viz</a>
+    <a href="#!" class="button block button-transparent" data-filter=".tags.tables">tables</a>
   </div>
 </div>
 <!--
