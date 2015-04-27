@@ -6,8 +6,6 @@ HTMLWidgets.widget({
     initialize: function(el, width, height) {
 
         $(el).append('<div id="controls"></div>');
-        //$('#controls').append('<div id="filter"></div>')
-        //$('#controls').append('<div id="sort"></div>')
         $(el).append('<div id="isotope-items"></div>');
         var iso = new Isotope('#isotope-items', {
             itemSelector: '.element-item',
@@ -56,69 +54,6 @@ HTMLWidgets.widget({
 
         instance.iso.arrange();
 
-        // // bind filter button click
-        // $('#filters').on('click', 'button', function() {
-        //     var filterValue = $(this).attr('data-filter');
-        //     console.log(filterValue)
-        //     instance.iso.arrange({
-        //         filter: filterValue
-        //     });
-        // });
-
-        // // bind filter button click
-        // $('#filters').on('click', 'button', function() {
-        //     var filterValue = $(this).attr('data-filter');
-        //     console.log(filterValue)
-        //     instance.iso.arrange({
-        //         filter: filterValue
-        //     });
-        // });
-
-
-
-
-        // INITIALIZE DISCLOSURE MECHANISM
-        //
-
-        var Disclosure = function(el, options) {
-            el.isActive = false;
-            el.details = el.querySelectorAll('[data-details]');
-            el.hide = function() {
-                for (var i = 0; i < el.details.length; i++) {
-                    el.details[i].style.display = 'none';
-                }
-            };
-            el.show = function() {
-                for (var i = 0; i < el.details.length; i++) {
-                    el.details[i].style.display = 'block';
-                }
-            };
-            el.toggle = function(e) {
-                e.stopPropagation();
-                el.isActive = !el.isActive;
-                if (el.isActive) {
-                    el.show();
-                } else {
-                    el.hide();
-                }
-            }
-            el.addEventListener('click', function(e) {
-                el.toggle(e);
-            });
-            el.hide();
-            return el;
-        };
-
-        var disclosures = document.querySelectorAll('[data-disclosure]');
-
-        for (var i = 0; i < disclosures.length; i++) {
-            disclosures[i] = new Disclosure(disclosures[i]);
-        }
-
-        //
-
-
-
         // bind filter button click
         $('#filters').on('click', 'a', function() {
             var filterValue = $(this).attr('data-filter');
@@ -144,6 +79,74 @@ HTMLWidgets.widget({
                 $(this).addClass('is-checked');
             });
         });
+
+
+        ///// Selectize filters
+
+        var $select = $("#select-car").selectize({
+            options: [
+            {id: 'avenger', make: 'dodge', model: 'Avenger'},
+                // {id: 'caliber', make: 'dodge', model: 'Caliber'},
+                // {id: 'caravan-grand-passenger', make: 'dodge', model: 'Caravan Grand Passenger'},
+                {id: 'metal', make: 'tags', model: 'Metal'},
+                {id: 'transition', make: 'tags', model: 'transition'},
+                {id: 's8', make: 'audi', model: 'S8'},
+                {id: 'tt', make: 'audi', model: 'TT'},
+                {id: 'avalanche', make: 'chevrolet', model: 'Avalanche'},
+                {id: 'aveo', make: 'chevrolet', model: 'Aveo'},
+                {id: 'cobalt', make: 'chevrolet', model: 'Cobalt'},
+                {id: 'silverado', make: 'chevrolet', model: 'Silverado'},
+                {id: 'suburban', make: 'chevrolet', model: 'Suburban'},
+                {id: 'tahoe', make: 'chevrolet', model: 'Tahoe'},
+                {id: 'trail-blazer', make: 'chevrolet', model: 'TrailBlazer'},
+            ],
+            optgroups: [
+                {id: 'tags', name: 'Tags'},
+                {id: 'dodge', name: 'Dodge'},
+                {id: 'audi', name: 'Audi'},
+                {id: 'chevrolet', name: 'Chevrolet'}
+            ],
+            labelField: 'model',
+            valueField: 'id',
+            optgroupField: 'make',
+            optgroupLabelField: 'name',
+            optgroupValueField: 'id',
+            optgroupOrder: ['chevrolet', 'dodge', 'audi'],
+            searchField: ['model'],
+            plugins: ['optgroup_columns']
+            // ,
+            // onChange: function(value) {
+            //            console.log(value);
+            //            var filterValues = filterItems(value);              
+            //       }
+        });
+
+        var filterItems = function(value){
+            // console.log(value.split(','));
+            if(value == "") return("*")
+            var v = value.split(',').map(function(a){return("."+a)});
+            // console.log(a,v.join(""))
+            // $container.isotope({ filter: filterValue });
+            console.log(v.join(""))
+            return(v.join(""))
+        }
+
+
+        $select.on('change', function() {
+            // console.log(this)
+            // console.log(this.selectize.getValue());
+            var value = this.selectize.getValue()
+            var filterValue = filterItems(value); 
+            console.log("FILTER VALUE: "+ filterValue)
+            console.log("typeOf: "+ typeof(filterValue))
+            //$container.isotope({ filter: filterValue });
+            instance.iso.arrange({
+                filter: filterValue
+            });
+          });
+
+
+
 
 
 

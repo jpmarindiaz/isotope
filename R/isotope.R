@@ -8,6 +8,10 @@
 isotope <- function(message, width = NULL, height = NULL) {
 
   filterBtns <- '
+
+<h2>Selectize</h2>
+  <div id="select-car"></div>
+
   <h2>Filter</h2>
 
 <div id="filters" class="button-group">
@@ -156,23 +160,39 @@ isotope <- function(message, width = NULL, height = NULL) {
   l <- yaml.load_file(system.file("data/htmlwidgets.yaml",package="isotope"))
   d <- list_to_df(l)
 
+
+# filterBtns <- '
+#   <select class="filter-dropdown">
+#     <option value="*">show all</option>
+# <option value=".tags.visualization">visualization</option>
+# <option value=".tags.tables">tables</option>
+# </select>
+#
+#   <select class="filter-dropdown">
+#     <option value="*">show all</option>
+# <option value=".tags.visualization">visualization</option>
+# <option value=".tags.tables">tables</option>
+# </select>
+# '
+
+
 #   filterCols <- c('tags','status','author')
 #   filterBtns <- filterBtnHtml(d,filterCols)
 
-  items <- htmlItems(d,filterCols)
-
-  sortCols <- c("name","author")
-  sortData <- as.list(paste0(".",sortCols))
-  names(sortData) <- sortCols
-  sortBtns <- sortBtnHtml(d,sortCols)
-  sortBtns <- ""
+#   items <- htmlItems(d,filterCols)
+#
+#   sortCols <- c("name","author")
+#   sortData <- as.list(paste0(".",sortCols))
+#   names(sortData) <- sortCols
+#   sortBtns <- sortBtnHtml(d,sortCols)
+#   sortBtns <- ""
 
   # forward options using x
   x = list(
     message = message,
     filterBtns = filterBtns,
     sortBtns = sortBtns,
-    sortData = sortData,
+    # sortData = sortData,
     items = items
   )
 

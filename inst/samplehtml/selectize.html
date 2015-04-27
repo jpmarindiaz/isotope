@@ -1,0 +1,292 @@
+<!doctype html>
+<meta charset="utf-8">
+ 
+<!-- load D3js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+ 
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.0/isotope.pkgd.min.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.1/js/standalone/selectize.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.1/css/selectize.default.css">
+
+<h2>Selectize</h2>
+
+<div id="select-car"></div>
+
+<h2>Filter</h2>
+<div id="filters" class="button-group">  <button class="button is-checked" data-filter="*">show all</button>
+  <button class="button" data-filter=".metal">metal</button>
+  <button class="button" data-filter=".transition">transition</button>
+  <button class="button" data-filter=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
+  <button class="button" data-filter=":not(.transition)">not transition</button>
+  <button class="button" data-filter=".metal:not(.transition)">metal but not transition</button>
+  <button class="button" data-filter="numberGreaterThan50">number > 50</button>
+  <button class="button" data-filter="ium">name ends with &ndash;ium</button>
+</div>
+
+<h2>Sort</h2>
+<div id="sorts" class="button-group">  <button class="button is-checked" data-sort-by="original-order">original order</button>
+  <button class="button" data-sort-by="name">name</button>
+  <button class="button" data-sort-by="symbol">symbol</button>
+  <button class="button" data-sort-by="number">number</button>
+  <button class="button" data-sort-by="weight">weight</button>
+  <button class="button" data-sort-by="category">category</button>
+</div>
+
+<div class="isotope">
+  <div class="element-item transition metal " data-category="transition">
+    <h3 class="name">Mercury</h3>
+    <p class="symbol">Hg</p>
+    <p class="number">80</p>
+    <p class="weight">200.59</p>
+  </div>
+  <div class="element-item metalloid " data-category="metalloid">
+    <h3 class="name">Tellurium</h3>
+    <p class="symbol">Te</p>
+    <p class="number">52</p>
+    <p class="weight">127.6</p>
+  </div>
+  <div class="element-item post-transition metal " data-category="post-transition">
+    <h3 class="name">Bismuth</h3>
+    <p class="symbol">Bi</p>
+    <p class="number">83</p>
+    <p class="weight">208.980</p>
+  </div>
+  <div class="element-item post-transition metal " data-category="post-transition">
+    <h3 class="name">Lead</h3>
+    <p class="symbol">Pb</p>
+    <p class="number">82</p>
+    <p class="weight">207.2</p>
+  </div>
+  <div class="element-item transition metal " data-category="transition">
+    <h3 class="name">Gold</h3>
+    <p class="symbol">Au</p>
+    <p class="number">79</p>
+    <p class="weight">196.967</p>
+  </div>
+  <div class="element-item alkali metal " data-category="alkali">
+    <h3 class="name">Potassium</h3>
+    <p class="symbol">K</p>
+    <p class="number">19</p>
+    <p class="weight">39.0983</p>
+  </div>
+  <div class="element-item alkali metal " data-category="alkali">
+    <h3 class="name">Sodium</h3>
+    <p class="symbol">Na</p>
+    <p class="number">11</p>
+    <p class="weight">22.99</p>
+  </div>
+  <div class="element-item transition metal " data-category="transition">
+    <h3 class="name">Cadmium</h3>
+    <p class="symbol">Cd</p>
+    <p class="number">48</p>
+    <p class="weight">112.411</p>
+  </div>
+  <div class="element-item alkaline-earth metal " data-category="alkaline-earth">
+    <h3 class="name">Calcium</h3>
+    <p class="symbol">Ca</p>
+    <p class="number">20</p>
+    <p class="weight">40.078</p>
+  </div>
+  <div class="element-item transition metal " data-category="transition">
+    <h3 class="name">Rhenium</h3>
+    <p class="symbol">Re</p>
+    <p class="number">75</p>
+    <p class="weight">186.207</p>
+  </div>
+  <div class="element-item post-transition metal " data-category="post-transition">
+    <h3 class="name">Thallium</h3>
+    <p class="symbol">Tl</p>
+    <p class="number">81</p>
+    <p class="weight">204.383</p>
+  </div>
+  <div class="element-item metalloid " data-category="metalloid">
+    <h3 class="name">Antimony</h3>
+    <p class="symbol">Sb</p>
+    <p class="number">51</p>
+    <p class="weight">121.76</p>
+  </div>
+  <div class="element-item transition metal " data-category="transition">
+    <h3 class="name">Cobalt</h3>
+    <p class="symbol">Co</p>
+    <p class="number">27</p>
+    <p class="weight">58.933</p>
+  </div>
+  <div class="element-item lanthanoid metal inner-transition " data-category="lanthanoid">
+    <h3 class="name">Ytterbium</h3>
+    <p class="symbol">Yb</p>
+    <p class="number">70</p>
+    <p class="weight">173.054</p>
+  </div>
+  <div class="element-item noble-gas nonmetal " data-category="noble-gas">
+    <h3 class="name">Argon</h3>
+    <p class="symbol">Ar</p>
+    <p class="number">18</p>
+    <p class="weight">39.948</p>
+  </div>
+  <div class="element-item diatomic nonmetal " data-category="diatomic">
+    <h3 class="name">Nitrogen</h3>
+    <p class="symbol">N</p>
+    <p class="number">7</p>
+    <p class="weight">14.007</p>
+  </div>
+  <div class="element-item actinoid metal inner-transition " data-category="actinoid">
+    <h3 class="name">Uranium</h3>
+    <p class="symbol">U</p>
+    <p class="number">92</p>
+    <p class="weight">238.029</p>
+  </div>
+  <div class="element-item actinoid metal inner-transition " data-category="actinoid">
+    <h3 class="name">Plutonium</h3>
+    <p class="symbol">Pu</p>
+    <p class="number">94</p>
+    <p class="weight">(244)</p>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  // external js: isotope.pkgd.js
+
+$( document ).ready( function() {
+  // init Isotope
+  var $container = $('.isotope').isotope({
+    itemSelector: '.element-item',
+    layoutMode: 'fitRows',
+    getSortData: {
+      name: '.name',
+      symbol: '.symbol',
+      number: '.number parseInt',
+      category: '[data-category]',
+      weight: function( itemElem ) {
+        var weight = $( itemElem ).find('.weight').text();
+        return parseFloat( weight.replace( /[\(\)]/g, '') );
+      }
+    }
+  });
+
+  // filter functions
+  var filterFns = {
+    // show if number is greater than 50
+    numberGreaterThan50: function() {
+      var number = $(this).find('.number').text();
+      return parseInt( number, 10 ) > 50;
+    },
+    // show if name ends with -ium
+    ium: function() {
+      var name = $(this).find('.name').text();
+      return name.match( /ium$/ );
+    }
+  };
+
+  // bind filter button click
+  $('#filters').on( 'click', 'button', function() {
+    var filterValue = $( this ).attr('data-filter');
+    // use filterFn if matches value
+    filterValue = filterFns[ filterValue ] || filterValue;
+    console.log("filter: "+filterValue)
+    console.log("typeOf: "+ typeof(filterValue))
+    $container.isotope({ filter: filterValue });
+  });
+
+  // bind sort button click
+  $('#sorts').on( 'click', 'button', function() {
+    var sortByValue = $(this).attr('data-sort-by');
+    $container.isotope({ sortBy: sortByValue });
+  });
+  
+  // change is-checked class on buttons
+  $('.button-group').each( function( i, buttonGroup ) {
+    var $buttonGroup = $( buttonGroup );
+    $buttonGroup.on( 'click', 'button', function() {
+      $buttonGroup.find('.is-checked').removeClass('is-checked');
+      $( this ).addClass('is-checked');
+    });
+  });
+
+  // console.log($container)
+
+///// Selectize filters
+
+var $select = $("#select-car").selectize({
+    options: [
+    {id: 'avenger', make: 'dodge', model: 'Avenger'},
+        // {id: 'caliber', make: 'dodge', model: 'Caliber'},
+        // {id: 'caravan-grand-passenger', make: 'dodge', model: 'Caravan Grand Passenger'},
+        // {id: 'challenger', make: 'dodge', model: 'Challenger'},
+        // {id: 'ram-1500', make: 'dodge', model: 'Ram 1500'},
+        // {id: 'viper', make: 'dodge', model: 'Viper'},
+        {id: 'metal', make: 'tags', model: 'Metal'},
+        {id: 'transition', make: 'tags', model: 'transition'},
+        // {id: 'a6', make: 'audi', model: 'A6'},
+        // {id: 'r8', make: 'audi', model: 'R8'},
+        // {id: 'rs-4', make: 'audi', model: 'RS 4'},
+        // {id: 's4', make: 'audi', model: 'S4'},
+        {id: 's8', make: 'audi', model: 'S8'},
+        {id: 'tt', make: 'audi', model: 'TT'},
+        {id: 'avalanche', make: 'chevrolet', model: 'Avalanche'},
+        {id: 'aveo', make: 'chevrolet', model: 'Aveo'},
+        {id: 'cobalt', make: 'chevrolet', model: 'Cobalt'},
+        {id: 'silverado', make: 'chevrolet', model: 'Silverado'},
+        {id: 'suburban', make: 'chevrolet', model: 'Suburban'},
+        {id: 'tahoe', make: 'chevrolet', model: 'Tahoe'},
+        {id: 'trail-blazer', make: 'chevrolet', model: 'TrailBlazer'},
+    ],
+    optgroups: [
+        {id: 'tags', name: 'Tags'},
+        {id: 'dodge', name: 'Dodge'},
+        {id: 'audi', name: 'Audi'},
+        {id: 'chevrolet', name: 'Chevrolet'}
+    ],
+    labelField: 'model',
+    valueField: 'id',
+    optgroupField: 'make',
+    optgroupLabelField: 'name',
+    optgroupValueField: 'id',
+    optgroupOrder: ['chevrolet', 'dodge', 'audi'],
+    searchField: ['model'],
+    plugins: ['optgroup_columns']
+    // ,
+    // onChange: function(value) {
+    //            console.log(value);
+    //            var filterValues = filterItems(value);              
+    //       }
+});
+
+var filterItems = function(value){
+    // console.log(value.split(','));
+    if(value == "") return("*")
+    var v = value.split(',').map(function(a){return("."+a)});
+    // console.log(a,v.join(""))
+    // $container.isotope({ filter: filterValue });
+    console.log(v.join(""))
+    return(v.join(""))
+}
+
+
+$select.on('change', function() {
+    // console.log(this)
+    // console.log(this.selectize.getValue());
+    var value = this.selectize.getValue()
+    var filterValue = filterItems(value); 
+    console.log("FILTER VALUE: "+ filterValue)
+    console.log("typeOf: "+ typeof(filterValue))
+
+    $container.isotope({ filter: filterValue });
+  });
+
+
+/////
+
+
+
+  
+});
+
+
+
+</script>
+
+
+

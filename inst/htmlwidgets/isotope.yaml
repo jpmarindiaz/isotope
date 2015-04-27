@@ -7,6 +7,11 @@ dependencies:
     version: 2.2.0
     src: "htmlwidgets/lib/isotope-v2.2.0"
     script: isotope.pkgd.min.js
+  - name: selectize
+    version: 0.12.1
+    src: "htmlwidgets/lib/selectize-v0.12.1"
+    script: selectize.js
+    stylesheet: selectize.default.css
   - name: basscss
     version: 2.2.0
     src: "htmlwidgets/lib/basscss"
