@@ -16,7 +16,10 @@ whisker.render.df <- function(tpl,d, collapse = TRUE){
 #' @export
 #'
 list_to_df <- function(l){
-  as.data.frame(do.call(rbind, l))
+  l <- lapply(l,function(ll){lapply(ll,nullToEmpty)})
+  do.call(rbind.data.frame, l)
+  #plyr::ldply (l, data.frame)
+  #data.frame(matrix(unlist(l), nrow=length(l), byrow=T))
 }
 
 `%||%` <- function (x, y)

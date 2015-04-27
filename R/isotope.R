@@ -9,9 +9,10 @@ isotope <- function(message, width = NULL, height = NULL) {
 
   filterBtns <- '
 
-<h2>Selectize</h2>
+<h3>Filter</h3>
   <div id="select-car"></div>
 
+  <!--
   <h2>Filter</h2>
 
 <div id="filters" class="button-group">
@@ -21,18 +22,19 @@ isotope <- function(message, width = NULL, height = NULL) {
   <button type="button" class="button">
     Visualization &#9662;
   </button>
-  <!--<div data-details class="fixed top-0 right-0 bottom-0 left-0"></div>-->
+<div data-details class="fixed top-0 right-0 bottom-0 left-0"></div>
   <div data-details class="absolute left-0 mt1 nowrap white bg-blue rounded">
     <a href="#!" class="button block button-transparent" data-filter=".tags.visualization">viz</a>
     <a href="#!" class="button block button-transparent" data-filter=".tags.tables">tables</a>
   </div>
 </div>
-<!--
+
 
   <button class="button" data-filter=".alkali, .alkaline-earth">alkali and alkaline-earth</button>
   <button class="button" data-filter=":not(.transition)">not transition</button>
 -->
-  </div>'
+  </div>
+'
 
   sortBtns <-'
   <h2>Sort</h2>
@@ -176,24 +178,32 @@ isotope <- function(message, width = NULL, height = NULL) {
 # '
 
 
-#   filterCols <- c('tags','status','author')
+  filterCols <- c('tags','status','author')
 #   filterBtns <- filterBtnHtml(d,filterCols)
 
-#   items <- htmlItems(d,filterCols)
-#
-#   sortCols <- c("name","author")
-#   sortData <- as.list(paste0(".",sortCols))
-#   names(sortData) <- sortCols
-#   sortBtns <- sortBtnHtml(d,sortCols)
-#   sortBtns <- ""
+  items <- htmlItems(d,filterCols)
+
+  sortCols <- c("name","author")
+  sortData <- as.list(paste0(".",sortCols))
+  names(sortData) <- sortCols
+  sortBtns <- sortBtnHtml(d,sortCols)
+  #sortBtns <- ""
+
+  ## Selectize
+
+  selectizeOptions <- selectizeOpts(d, filterCols)
+  selectizeOptgroups <- data.frame(groupId =  unique(selectizeOptions$groupId))
+  selectizeOptgroups$groupLabel <- selectizeOptgroups$groupId
 
   # forward options using x
   x = list(
     message = message,
     filterBtns = filterBtns,
     sortBtns = sortBtns,
-    # sortData = sortData,
-    items = items
+    sortData = sortData,
+    items = items,
+    selectizeOptions = selectizeOptions,
+    selectizeOptgroups = selectizeOptgroups
   )
 
   # create widget

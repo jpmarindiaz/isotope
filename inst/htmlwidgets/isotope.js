@@ -83,63 +83,61 @@ HTMLWidgets.widget({
 
         ///// Selectize filters
 
-        var $select = $("#select-car").selectize({
+        var selOpts = {
             options: [
-            {id: 'avenger', make: 'dodge', model: 'Avenger'},
-                // {id: 'caliber', make: 'dodge', model: 'Caliber'},
-                // {id: 'caravan-grand-passenger', make: 'dodge', model: 'Caravan Grand Passenger'},
-                {id: 'metal', make: 'tags', model: 'Metal'},
-                {id: 'transition', make: 'tags', model: 'transition'},
-                {id: 's8', make: 'audi', model: 'S8'},
-                {id: 'tt', make: 'audi', model: 'TT'},
-                {id: 'avalanche', make: 'chevrolet', model: 'Avalanche'},
-                {id: 'aveo', make: 'chevrolet', model: 'Aveo'},
-                {id: 'cobalt', make: 'chevrolet', model: 'Cobalt'},
-                {id: 'silverado', make: 'chevrolet', model: 'Silverado'},
-                {id: 'suburban', make: 'chevrolet', model: 'Suburban'},
-                {id: 'tahoe', make: 'chevrolet', model: 'Tahoe'},
-                {id: 'trail-blazer', make: 'chevrolet', model: 'TrailBlazer'},
+                {filterValueId: 'tables', groupId: 'tags', filterValueLabel: 'Tables'},
+                {filterValueId: 'visualization', groupId: 'tags', filterValueLabel: 'Viz'},
+                // {filterValueId: 'caravan-grand-passenger', groupId: 'dodge', filterValueLabel: 'Caravan Grand Passenger'},
+                {filterValueId: 'metal', groupId: 'tags', filterValueLabel: 'Metal'},
+                {filterValueId: 'transition', groupId: 'tags', filterValueLabel: 'transition'},
+                {filterValueId: 'jpmarindiaz', groupId: 'author', filterValueLabel: 'jpmarindiaz'},
+                {filterValueId: 'timelyportfolio', groupId: 'author', filterValueLabel: 'timelyportfolio'},
+                {filterValueId: 'avalanche', groupId: 'chevrolet', filterValueLabel: 'Avalanche'},
+                {filterValueId: 'aveo', groupId: 'chevrolet', filterValueLabel: 'Aveo'},
+                {filterValueId: 'cobalt', groupId: 'chevrolet', filterValueLabel: 'Cobalt'},
+                {filterValueId: 'silverado', groupId: 'chevrolet', filterValueLabel: 'Silverado'},
+                {filterValueId: 'suburban', groupId: 'chevrolet', filterValueLabel: 'Suburban'},
+                {filterValueId: 'tahoe', groupId: 'chevrolet', filterValueLabel: 'Tahoe'},
+                {filterValueId: 'trail-blazer', groupId: 'chevrolet', filterValueLabel: 'TrailBlazer'},
             ],
             optgroups: [
-                {id: 'tags', name: 'Tags'},
-                {id: 'dodge', name: 'Dodge'},
-                {id: 'audi', name: 'Audi'},
-                {id: 'chevrolet', name: 'Chevrolet'}
+                {groupId: 'tags', groupLabel: 'Tags'},
+                {groupId: 'dodge', groupLabel: 'Dodge'},
+                {groupId: 'author', groupLabel: 'Author'},
+                {groupId: 'chevrolet', groupLabel: 'Chevrolet'}
             ],
-            labelField: 'model',
-            valueField: 'id',
-            optgroupField: 'make',
-            optgroupLabelField: 'name',
-            optgroupValueField: 'id',
-            optgroupOrder: ['chevrolet', 'dodge', 'audi'],
-            searchField: ['model'],
-            plugins: ['optgroup_columns']
-            // ,
-            // onChange: function(value) {
-            //            console.log(value);
-            //            var filterValues = filterItems(value);              
-            //       }
-        });
+            labelField: 'filterValueLabel',
+            valueField: 'filterValueId',
+            optgroupField: 'groupId',
+            optgroupLabelField: 'groupLabel',
+            optgroupValueField: 'groupId',
+            // optgroupOrder: ['chevrolet', 'dodge', 'audi'],
+            searchField: ['filterValueLabel'],
+            plugins: ['optgroup_columns','remove_button']
+        };
+
+
+
+        var selectizeOpts = HTMLWidgets.dataframeToD3(x.selectizeOptions);
+        var selectizeOptgroups = HTMLWidgets.dataframeToD3(x.selectizeOptgroups);
+        selOpts.options = selectizeOpts;
+        selOpts.optgroups = selectizeOptgroups;
+
+        var $select = $("#select-car").selectize(selOpts);
 
         var filterItems = function(value){
-            // console.log(value.split(','));
             if(value == "") return("*")
             var v = value.split(',').map(function(a){return("."+a)});
-            // console.log(a,v.join(""))
-            // $container.isotope({ filter: filterValue });
             console.log(v.join(""))
             return(v.join(""))
         }
 
 
         $select.on('change', function() {
-            // console.log(this)
-            // console.log(this.selectize.getValue());
             var value = this.selectize.getValue()
             var filterValue = filterItems(value); 
             console.log("FILTER VALUE: "+ filterValue)
             console.log("typeOf: "+ typeof(filterValue))
-            //$container.isotope({ filter: filterValue });
             instance.iso.arrange({
                 filter: filterValue
             });

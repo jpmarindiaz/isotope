@@ -18,7 +18,7 @@ htmlItems <- function(d, filterCols, elemTpl = NULL){
 
    lFilters <- lapply(filterCols,function(col){
       catFilters <-lapply(d[,col],function(x){
-        x <- nullToEmpty(x, empty="empty")
+        x <- as.character(nullToEmpty(x, empty="empty"))
         filterRowValues <- c(col,strsplit(x,",")[[1]])
         elemClass <- paste(filterRowValues,collapse = " ")
       })
@@ -78,8 +78,40 @@ sortBtnHtml <- function(d,sortCols = NULL){
     tags$button(b,class="button",`data-sort-by`= b)
   })
   sortDiv <- tags$div(id="sorts",class="button-group",
+                      tags$h3("Sort"),
                       tags$button("original-order",class="button",`data-sort-by`= "original-order"),
                       btnsHtml
   )
   doRenderTags(sortDiv)
 }
+
+
+#' @export
+selectizeOpts <- function(d, filterCols){
+  #filterCols <- c('tags','status','author')
+  df <- d[c(filterCols)]
+  l <- lapply(filterCols,function(col){
+    df <- d[col]
+    df$groupId <- col
+    names(df) <- c("filterValueId","groupId")
+    df <- df[!is.null(df$filterValueId),]
+    df
+  })
+  optsDf <- do.call(rbind.data.frame, l)
+  optsDf <- optsDf[optsDf$filterValueId != "",]
+  optsDf <- optsDf[!duplicated(optsDf),]
+  optsDf$filterValueId <- as.character(optsDf$filterValueId)
+  optsDf <- ddply(optsDf, names(optsDf),function(d){
+    x <- strsplit(d$filterValueId,",")[[1]]
+    df <- data.frame(filterValueId = x, stringsAsFactors = FALSE)
+    df$groupId <- d$groupId
+    df
+  })
+  optsDf <- optsDf[!duplicated(optsDf),]
+  optsDf <- optsDf[with(optsDf,order(groupId,filterValueId)),]
+  optsDf$filterValueLabel <- optsDf$filterValueId
+  optsDf
+}
+
+
+
