@@ -4,7 +4,8 @@
 \alias{isotope}
 \title{<Add Title>}
 \usage{
-isotope(message, width = NULL, height = NULL)
+isotope(d, filterCols = NULL, sortCols = NULL, elemTpl = NULL,
+  width = NULL, height = NULL)
 }
 \description{
 <Add Description>

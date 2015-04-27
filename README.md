@@ -6,11 +6,11 @@ It handles sortings, filtering and custom item html templates.
 
 # Todo
 
+- Stop when df col names contain dots or special characters
+- Sort opts: Button names, original-order(add/remove)
 - fix layout when resizing
 - add option to change layout mode
-- style buttons with dropdowns
-- Add sizing properties
-- add basscss
+- Add width/height properties for elements
 - add language option
 - add footer
 

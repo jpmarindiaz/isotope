@@ -1,14 +1,24 @@
+getStdTpl <- function(d){
+  nms <- names(d)[1:3]
+  nms <- nms[!is.na(nms)]
+  l <- lapply(nms,function(n){
+    tpl <- '<p class="{{n}}"><strong>{{n}}: </strong>__|{{n}}|__</p>'
+    x <- whisker.render(tpl,list(n=n))
+    x <- gsub("__|","{{",x,fixed=TRUE)
+    x <- gsub("|__","}}",x,fixed=TRUE)
+    x
+  })
+  paste('<div class="m1"><div class="container p1 border bg-lighter-gray">',
+        paste(unlist(l), collapse="\n"),
+        '</div></div>')
+}
+
+
 #' @export
 #'
 htmlItems <- function(d, filterCols, elemTpl = NULL){
 
-  elemTplStd <- '
-<div class="container m4 p2 bg-silver">
-<h1 class="name">{{name}}</h1>
-<p class="url">{{url}}</p>
-<p class="author">{{author}}</p>
-<p class="githubUrl">{{githubUrl}}</p>
-</div>'
+  elemTplStd <- getStdTpl(d)
   elemTpl <- elemTpl %||% elemTplStd
 
 
