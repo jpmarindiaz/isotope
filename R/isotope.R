@@ -7,12 +7,26 @@
 #' @export
 isotope <- function(d, filterCols = NULL, sortCols = NULL, elemTpl = NULL, width = NULL, height = NULL) {
 
+  # Data names properly formatted to use as item classes
+  originalNames <- names(d)
+  names(d) <- gsub(".","-",names(d),fixed=TRUE)
 
+  if(!is.null(sortCols)) {
+    sortCols <- names(d)[match(sortCols,originalNames)]
+    names(sortCols) <- originalNames[match(sortCols,names(d))]
+  }
+  if(!is.null(filterCols)) {
+    filterCols <- names(d)[match(filterCols,originalNames)]
+    names(filterCols) <- originalNames[match(filterCols,names(d))]
+  }
+
+#   filterCols <- names(d)[match(filterCols,originalNames)]
 
   if(is.null(filterCols)){
     message("No filter columns provided: no filters will be shown")
     filterBtns <- ''
   } else{
+    if(is.null(names(filterCols))) names(filterCols) <- filterCols
     filterBtns <- '<h3>Filter</h3><div id="select-car"></div>'
   }
 
@@ -41,7 +55,7 @@ isotope <- function(d, filterCols = NULL, sortCols = NULL, elemTpl = NULL, width
   } else{
     selectizeOptions <- selectizeOpts(d, filterCols)
     selectizeOptgroups <- data.frame(groupId =  unique(selectizeOptions$groupId))
-    selectizeOptgroups$groupLabel <- selectizeOptgroups$groupId
+    selectizeOptgroups$groupLabel <- names(filterCols)[match(selectizeOptgroups$groupId,filterCols)]
   }
 
   # forward options using x

@@ -9,13 +9,14 @@ devtools::install()
 library(isotope)
 
 d <- read.csv("inst/data/retail-sku-sample.csv",stringsAsFactors = FALSE)
-names(d) <- gsub(".","-",names(d),fixed=TRUE)
+#names(d) <- gsub(".","-",names(d),fixed=TRUE)
+
 sorts <- names(d)
-names(sorts) <- paste("new ",names(d))
+#names(sorts) <- paste("new ",names(d))
+isotope(d, sortCols = sorts[1:4])
 
 isotope(d)
-isotope(d, filterCols = names(d))
-isotope(d, sortCols = sorts)
+isotope(d, filterCols = sorts[3:6])
 isotope(d, filterCols = names(d), sortCols = names(d))
 
 
