@@ -1,0 +1,37 @@
+"Owner","Brand","Pack.Size","Pack.Type","SKU","Price.Tier","Unit.Sales","Sales.Value","Price","Gross.Profit"
+"Aperture","Delta",12,"Standard","Delta 12 Pack Standard","Budget",1765,95444,54.08,95201.52
+"Aperture","Eta",12,"Standard","Eta 12 Pack Standard","Budget",673,31930,47.44,31848.88
+"Aperture","Omicron",8,"Standard","Omicron 8 Pack Standard","Regular",1100,91520,83.2,91287.48
+"Aperture","Omicron",12,"Deluxe","Omicron 12 Pack Deluxe","Regular",548,48904,89.24,48779.76
+"Aperture","Omicron",12,"Giftset","Omicron 12 Pack Giftset","Regular",3307,269467,81.48,268782.39
+"Aperture","Omicron",12,"Standard","Omicron 12 Pack Standard","Regular",9596,662294,69.02,660611.37
+"Aperture","Omicron",18,"Standard","Omicron 18 Pack Standard","Regular",6629,409612,61.79,408571.34
+"Aperture","Sigma",12,"Giftset","Sigma 12 Pack Giftset","Premium",695,105748,152.16,105479.34
+"Aperture","Sigma",12,"Standard","Sigma 12 Pack Standard","Premium",707,101950,144.2,101690.99
+"Aperture","Tau",12,"Standard","Tau 12 Pack Standard","Regular",1110,70955,63.92,70774.73
+"Black Mesa","Epsilon",12,"Standard","Epsilon 12 Pack Standard","Budget",1207,63214,52.37,63053.4
+"Black Mesa","Iota",12,"Giftset","Iota 12 Pack Giftset","Regular",610,55730,91.36,55588.41
+"Black Mesa","Iota",12,"Standard","Iota 12 Pack Standard","Regular",1096,90079,82.19,89850.15
+"Black Mesa","Lambda",8,"Standard","Lambda 8 Pack Standard","Budget",469,30940,65.97,30861.39
+"Black Mesa","Lambda",12,"Standard","Lambda 12 Pack Standard","Budget",2948,168473,57.15,168044.98
+"Black Mesa","Mu",12,"Standard","Mu 12 Pack Standard","Premium",105,16874,160.7,16831.13
+"Black Mesa","Theta",6,"Standard","Theta 6 Pack Standard","Regular",133,12991,97.68,12957.99
+"Black Mesa","Theta",8,"Standard","Theta 8 Pack Standard","Regular",890,77897,87.52,77699.1
+"Black Mesa","Theta",12,"Deluxe","Theta 12 Pack Deluxe","Regular",1693,130549,77.11,130217.33
+"Black Mesa","Theta",12,"Giftset","Theta 12 Pack Giftset","Regular",6623,506206,76.43,504919.93
+"Black Mesa","Theta",12,"Standard","Theta 12 Pack Standard","Regular",4514,328711,72.82,327875.88
+"Black Mesa","Theta",18,"Standard","Theta 18 Pack Standard","Regular",16594,999335,60.22,996796.09
+"LexCorp","Gamma",12,"Standard","Gamma 12 Pack Standard","Budget",2600,162545,62.52,162132.04
+"MomCorp","Alpha",12,"Standard","Alpha 12 Pack Standard","Regular",396,35555,89.79,35464.67
+"MomCorp","Alpha",18,"Standard","Alpha 18 Pack Standard","Regular",1575,114674,72.81,114382.66
+"Rekall","Beta",8,"Standard","Beta 8 Pack Standard","Premium",735,84024,114.32,83810.53
+"Rekall","Beta",12,"Deluxe","Beta 12 Pack Deluxe","Premium",688,79887,116.11,79684.04
+"Rekall","Beta",12,"Giftset","Beta 12 Pack Giftset","Premium",1727,197923,114.61,197420.16
+"Rekall","Beta",12,"Standard","Beta 12 Pack Standard","Premium",7383,713849,96.69,712035.39
+"Rekall","Beta",18,"Standard","Beta 18 Pack Standard","Premium",4094,372800,91.06,371852.86
+"Rekall","Beta",60,"Standard","Beta 60 Pack Standard","Premium",893,90274,101.09,90044.65
+"Stark Ind","Omega",12,"Standard","Omega 12 Pack Standard","Budget",979,56381,57.59,56237.76
+"Tyrell Corp","Kappa",8,"Standard","Kappa 8 Pack Standard","Regular",872,68483,78.54,68309.01
+"Tyrell Corp","Kappa",12,"Standard","Kappa 12 Pack Standard","Regular",1891,134746,71.26,134403.66
+"Tyrell Corp","Kappa",18,"Standard","Kappa 18 Pack Standard","Regular",3067,203498,66.35,202980.99
+"Wayne Ent","Pi",12,"Giftset","Pi 12 Pack Giftset","Regular",804,62191,77.35,62033

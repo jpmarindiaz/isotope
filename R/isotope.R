@@ -27,17 +27,22 @@ isotope <- function(d, filterCols = NULL, sortCols = NULL, elemTpl = NULL, width
   }
 
   if(is.null(elemTpl)){
-    message("using default element template")
+    message("Using default element template")
     items <- htmlItems(d,filterCols)
   } else{
     items <- htmlItems(d,filterCols,elemTpl)
   }
 
   ## Selectize
-
-  selectizeOptions <- selectizeOpts(d, filterCols)
-  selectizeOptgroups <- data.frame(groupId =  unique(selectizeOptions$groupId))
-  selectizeOptgroups$groupLabel <- selectizeOptgroups$groupId
+  if(is.null(filterCols)){
+    selectizeOptions <- list()
+    selectizeOptgroups <- list()
+    selectizeOptgroups$groupLabel <- list()
+  } else{
+    selectizeOptions <- selectizeOpts(d, filterCols)
+    selectizeOptgroups <- data.frame(groupId =  unique(selectizeOptions$groupId))
+    selectizeOptgroups$groupLabel <- selectizeOptgroups$groupId
+  }
 
   # forward options using x
   x = list(

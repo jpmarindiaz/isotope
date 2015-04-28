@@ -8,6 +8,7 @@ It handles sortings, filtering and custom item html templates.
 
 - Stop when df col names contain dots or special characters
 - Sort opts: Button names, original-order(add/remove)
+- style sort buttons
 - fix layout when resizing
 - add option to change layout mode
 - Add width/height properties for elements

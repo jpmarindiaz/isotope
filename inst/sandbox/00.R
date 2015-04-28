@@ -7,6 +7,18 @@ document()
 devtools::install()
 
 library(isotope)
+
+d <- read.csv("inst/data/retail-sku-sample.csv",stringsAsFactors = FALSE)
+names(d) <- gsub(".","-",names(d),fixed=TRUE)
+sorts <- names(d)
+names(sorts) <- paste("new ",names(d))
+
+isotope(d)
+isotope(d, filterCols = names(d))
+isotope(d, sortCols = sorts)
+isotope(d, filterCols = names(d), sortCols = names(d))
+
+
 l <- yaml.load_file("inst/data/htmlwidgets.yaml")
 d <- list_to_df(l)
 filterCols <- c('tags','status','author','jsLibIds')

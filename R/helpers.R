@@ -1,5 +1,10 @@
-getStdTpl <- function(d){
-  nms <- names(d)[1:3]
+getStdTpl <- function(d, filterCols = NULL, sortCols = NULL){
+
+  if(is.null(filterCols) && is.null(sortCols)){
+    nms <- names(d)
+  } else{
+    nms <- union(filterCols,sortCols)
+  }
   nms <- nms[!is.na(nms)]
   l <- lapply(nms,function(n){
     tpl <- '<p class="{{n}}"><strong>{{n}}: </strong>__|{{n}}|__</p>'
@@ -26,7 +31,7 @@ htmlItems <- function(d, filterCols, elemTpl = NULL){
   #Apply Filter classes
    #filterCols <- c('tags','status','author')
 
-   lFilters <- lapply(filterCols,function(col){
+   lFilters <- lapply(names(d),function(col){
       catFilters <-lapply(d[,col],function(x){
         x <- as.character(nullToEmpty(x, empty="empty"))
         filterRowValues <- c(col,strsplit(x,",")[[1]])
@@ -84,12 +89,16 @@ sortBtnHtml <- function(d,sortCols = NULL){
   sortCols <- sortCols %||% names(d)
   buttons <- sortCols
   #<button class="button" data-sort-by="name">name</button>
-  btnsHtml <- lapply(buttons,function(b){
-    tags$button(b,class="button",`data-sort-by`= b)
-  })
+
+  if(is.null(names(buttons))) names(buttons) <- buttons
+
+  btnsHtml <- lapply(seq_along(buttons),function(b,bnames,i){
+    tags$button(bnames[[i]],class="button mb1",`data-sort-by`= b[[i]])
+  }, b=buttons, bnames=names(buttons))
   sortDiv <- tags$div(id="sorts",class="button-group",
                       tags$h3("Sort"),
-                      tags$button("original-order",class="button",`data-sort-by`= "original-order"),
+                      tags$button("Original Order",
+                                  class="button mb1",`data-sort-by`= "original-order"),
                       btnsHtml
   )
   doRenderTags(sortDiv)
