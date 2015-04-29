@@ -1,0 +1,419 @@
+-
+    name: datamaps
+    thumbnail: 
+    url: "https://github.com/htmlwidgets/datamaps"
+    jsLibIds: datamaps,d3
+    githubUrl: "https://github.com/htmlwidgets/datamaps"
+    tags: visualization,maps
+    release: alpha
+    examples: 
+    documentation:
+    author: ramnathv
+-
+    name: rChartsCalmap
+    thumbnail: 
+    url: "https://github.com/ramnathv/rChartsCalmap"
+    jsLibIds: d3
+    githubUrl: "https://github.com/ramnathv/rChartsCalmap"
+    tags: visualization,calendar,heatmap
+    release: stable
+    examples: 
+    documentation:
+    author: ramnathv
+-
+    name: leaflet
+    thumbnail: 
+    url: "http://rstudio.github.io/leaflet/"
+    jsLibIds: leaflet
+    githubUrl: "https://github.com/rstudio/leaflet"
+    tags: visualization,maps
+    release: stable
+    examples: 
+    documentation:
+    author: rstudio 
+-
+    name: DT
+    thumbnail: 
+    url: "http://rstudio.github.io/DT/"
+    jsLibIds: DT
+    githubUrl: "https://github.com/rstudio/DT"
+    tags: tables
+    release: stable
+    examples: 
+    documentation:
+    author: rstudio 
+-
+    name: dygraphs
+    thumbnail: 
+    url: "http://rstudio.github.io/dygraphs/"
+    jsLibIds: dygraphs
+    githubUrl: "https://github.com/rstudio/dygraphs"
+    tags: visualization,timeseries
+    release: stable
+    examples: 
+    documentation:
+    author: rstudio 
+-
+    name: metricsgraphics
+    thumbnail: 
+    url: "http://hrbrmstr.github.io/metricsgraphics/"
+    jsLibIds: metricsgraphicsjs,d3
+    githubUrl: "https://github.com/hrbrmstr/metricsgraphs"
+    tags: visualization,general
+    release: stable
+    examples: 
+    documentation:
+    author: hrbrmstr
+
+-
+    name: streamgraph
+    thumbnail: 
+    url: "http://hrbrmstr.github.io/streamgraph/"
+    jsLibIds: d3
+    githubUrl: "https://github.com/hrbrmstr/streamgraph"
+    tags: visualization,general
+    release: stable
+    examples: 
+    documentation:
+    author: hrbrmstr
+
+-
+    name: networkD3
+    thumbnail: 
+    url: "http://christophergandrud.github.io/networkD3/"
+    jsLibIds: d3
+    githubUrl: "http://github.com/christophergandrud/networkD3/"
+    tags: visualization,networks
+    release: stable
+    examples: 
+    documentation:
+    author: christophergandrud
+-
+    name: rthreejs
+    thumbnail: 
+    url: "https://github.com/bwlewis/rthreejs"
+    jsLibIds: threejs
+    githubUrl: "https://github.com/bwlewis/rthreejs"
+    tags: visualization,3D
+    release: stable
+    examples: 
+    documentation:
+    author: bwlewis
+-
+    name: DiagrammeR
+    thumbnail: 
+    url: "http://rich-iannone.github.io/DiagrammeR/"
+    jsLibIds: d3,viz,mermaid
+    githubUrl: "http://rich-iannone.github.io/DiagrammeR/"
+    tags: visualization,diagram
+    release: stable
+    examples: 
+    documentation:
+    author: rich-iannone
+-
+    name: sigmaGraph
+    thumbnail: 
+    url: "https://github.com/jpmarindiaz/sigmaGraph"
+    jsLibIds: sigma
+    githubUrl: "https://github.com/jpmarindiaz/sigmaGraph"
+    tags: visualization,networks
+    release: alpha
+    examples: 
+    documentation:
+    author: jpmarindiaz 
+-
+    name: bubbleCloud
+    thumbnail: 
+    url: "https://github.com/jpmarindiaz/bubbleCloud"
+    jsLibIds: sigma
+    githubUrl: "https://github.com/jpmarindiaz/bubbleCloud"
+    tags: visualization,bubbles
+    release: alpha
+    examples: 
+    documentation:
+    author: jpmarindiaz 
+-
+    name: d3plus
+    thumbnail: 
+    url: "https://github.com/jpmarindiaz/d3plus"
+    jsLibIds: d3plus,d3
+    githubUrl: "https://github.com/jpmarindiaz/d3plus"
+    tags: visualization,networks
+    release: alpha
+    examples: 
+    documentation:
+    author: jpmarindiaz 
+-
+    name: isotope
+    thumbnail: 
+    url: "https://github.com/jpmarindiaz/isotope"
+    jsLibIds: isotope
+    githubUrl: "https://github.com/jpmarindiaz/isotope"
+    tags: grid
+    release: alpha
+    examples: 
+    documentation:
+    author: jpmarindiaz 
+-
+    name: D3TableFilter
+    thumbnail: 
+    url: "https://github.com/ThomasSiegmund/D3TableFilter"
+    jsLibIds: tableFilter,d3
+    githubUrl: "https://github.com/ThomasSiegmund/D3TableFilter"
+    tags: tables
+    release: stable
+    examples: 
+    documentation:
+    author: ThomasSiegmund 
+-
+    name: rhandsontable
+    thumbnail: 
+    url: "https://github.com/jrowen/rhandsontable/"
+    jsLibIds: handsontable
+    githubUrl: "https://github.com/jrowen/rhandsontable/"
+    tags: tables
+    release: alpha
+    examples: 
+    documentation:
+    author: jrowen 
+-
+    name: rcdimple
+    thumbnail: 
+    url: "https://github.com/timelyportfolio/rcdimple"
+    jsLibIds: dimple,d3
+    githubUrl: "https://github.com/timelyportfolio/rcdimple"
+    tags: visualization,general
+    release: stable
+    examples: "http://www.buildingwidgets.com/blog/2015/3/18/week-11-dimple-as-htmlwidget"
+    documentation:
+    author: timelyportfolio 
+-
+    name: sortableR
+    thumbnail: 
+    url: "https://github.com/timelyportfolio/sortableR"
+    jsLibIds: sortablejs,d3
+    githubUrl: "https://github.com/timelyportfolio/sortableR"
+    tags: visualization,general
+    release: stable
+    examples: "http://www.buildingwidgets.com/blog/2015/3/18/week-11-dimple-as-htmlwidget"
+    documentation:
+    author: timelyportfolio 
+-
+    name: parcoords
+    thumbnail: 
+    url: "https://github.com/timelyportfolio/parcoords"
+    jsLibIds: parcoords,d3
+    githubUrl: "https://github.com/timelyportfolio/parcoords"
+    tags: visualization,general
+    release: stable
+    examples: "http://www.buildingwidgets.com/blog/2015/3/18/week-11-dimple-as-htmlwidget"
+    documentation:
+    author: timelyportfolio 
+-
+    name: listviewer
+    thumbnail: 
+    url: "https://github.com/timelyportfolio/listviewer"
+    jsLibIds: listviewer,d3
+    githubUrl: "https://github.com/timelyportfolio/listviewer"
+    tags: visualization,general
+    release: stable
+    examples: "http://www.buildingwidgets.com/blog/2015/3/18/week-11-dimple-as-htmlwidget"
+    documentation:
+    author: timelyportfolio 
+-
+    name: svgPanZoom
+    thumbnail: 
+    url: "https://github.com/timelyportfolio/svgPanZoom"
+    jsLibIds: svgPanZoom
+    githubUrl: "https://github.com/timelyportfolio/svgPanZoom"
+    tags: visualization,general
+    release: stable
+    examples: "http://www.buildingwidgets.com/blog/2015/3/18/week-11-dimple-as-htmlwidget"
+    documentation:
+    author: timelyportfolio 
+-
+    name: exportwidget
+    thumbnail: 
+    url: "https://github.com/timelyportfolio/exportwidget"
+    jsLibIds: exportwidget
+    githubUrl: "https://github.com/timelyportfolio/exportwidget"
+    tags: visualization,general
+    release: stable
+    examples: "http://www.buildingwidgets.com/blog/2015/3/18/week-11-dimple-as-htmlwidget"
+    documentation:
+    author: timelyportfolio 
+-
+    name: trailr
+    thumbnail: 
+    url: "https://github.com/timelyportfolio/trailr"
+    jsLibIds: trailr
+    githubUrl: "https://github.com/timelyportfolio/trailr"
+    tags: visualization,general
+    release: stable
+    examples: "http://www.buildingwidgets.com/blog/2015/3/18/week-11-dimple-as-htmlwidget"
+    documentation:
+    author: timelyportfolio 
+-
+    name: imageR
+    thumbnail: 
+    url: "https://github.com/timelyportfolio/imageR"
+    jsLibIds: imageR
+    githubUrl: "https://github.com/timelyportfolio/imageR"
+    tags: visualization,general
+    release: stable
+    examples: "http://www.buildingwidgets.com/blog/2015/3/18/week-11-dimple-as-htmlwidget"
+    documentation:
+    author: timelyportfolio 
+
+-
+    name: plottableR
+    thumbnail: 
+    url: "https://github.com/timelyportfolio/plottableR"
+    jsLibIds:
+    githubUrl: "https://github.com/timelyportfolio/plottableR"
+    tags:
+    release:
+    examples:
+    documentation:
+    author: timelyportfolio
+
+-
+    name: chartist
+    thumbnail: 
+    url: "https://github.com/yutannihilation/chartist"
+    jsLibIds:
+    githubUrl: "https://github.com/yutannihilation/chartist"
+    tags:
+    release:
+    examples:
+    documentation:
+    author: yutannihilation
+-
+    name: phylowidget
+    thumbnail: 
+    url: "https://github.com/sdwfrost/phylowidget"
+    jsLibIds:
+    githubUrl: "https://github.com/sdwfrost/phylowidget"
+    tags:
+    release:
+    examples:
+    documentation:
+    author: sdwfrost
+-
+    name: sweep
+    thumbnail: 
+    url: "https://github.com/jalapic/sweep"
+    jsLibIds:
+    githubUrl: "https://github.com/jalapic/sweep"
+    tags:
+    release:
+    examples:
+    documentation:
+    author: jalapic
+-
+    name: testjs
+    thumbnail: 
+    url: "https://github.com/kbroman/testjs"
+    jsLibIds:
+    githubUrl: "https://github.com/kbroman/testjs"
+    tags:
+    release:
+    examples:
+    documentation:
+    author: kbroman
+-
+    name: highchartR
+    thumbnail: 
+    url: "https://github.com/jcizel/highchartR"
+    jsLibIds:
+    githubUrl: "https://github.com/jcizel/highchartR"
+    tags:
+    release:
+    examples:
+    documentation:
+    author: jcizel
+-
+    name: great-circles
+    thumbnail: 
+    url: "https://github.com/homeaway/great-circles "
+    jsLibIds:
+    githubUrl: "https://github.com/homeaway/great-circles "
+    tags:
+    release:
+    examples:
+    documentation:
+    author: homeaway
+-
+    name: sparklines
+    thumbnail: 
+    url: "https://github.com/Bart6114/sparklines"
+    jsLibIds:
+    githubUrl: "https://github.com/Bart6114/sparklines"
+    tags:
+    release:
+    examples:
+    documentation:
+    author: Bart6114
+-
+    name: highchartR
+    thumbnail: 
+    url: "https://github.com/jcizel/highchartR"
+    jsLibIds:
+    githubUrl: "https://github.com/jcizel/highchartR"
+    tags:
+    release:
+    examples:
+    documentation:
+    author: jcizel
+-
+    name: rWordCloud
+    thumbnail: 
+    url: "https://github.com/adymimos/rWordCloud"
+    jsLibIds:
+    githubUrl: "https://github.com/adymimos/rWordCloud"
+    tags:
+    release:
+    examples:
+    documentation:
+    author: adymimos
+-
+    name: c3r
+    thumbnail: 
+    url: "https://github.com/HarlanH/c3r "
+    jsLibIds:
+    githubUrl: "https://github.com/HarlanH/c3r "
+    tags:
+    release:
+    examples:
+    documentation:
+    author: HarlanH
+-
+    name: dcStockR
+    thumbnail: 
+    url: "https://github.com/yutannihilation/dcStockR"
+    jsLibIds:
+    githubUrl: "https://github.com/yutannihilation/dcStockR"
+    tags:
+    release:
+    examples:
+    documentation:
+    author: yutannihilation
+-
+    name: scatterMatrixD3
+    thumbnail: 
+    url: "https://github.com/jcizel/scatterMatrixD3"
+    jsLibIds:
+    githubUrl: "https://github.com/jcizel/scatterMatrixD3"
+    tags:
+    release:
+    examples:
+    documentation:
+    author: jcizel
+
+
+
+
+
+
+
+
