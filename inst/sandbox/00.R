@@ -18,6 +18,7 @@ isotope(d, sortCols = sorts[1:4])
 isotope(d)
 isotope(d, filterCols = sorts[3:6])
 isotope(d, filterCols = names(d), sortCols = names(d))
+isotope(d, filterCols = names(d), sortCols = names(d), filterTitle = "Filtrar por", sortTitle = 'Ordenar por')
 
 
 l <- yaml.load_file("inst/data/htmlwidgets.yaml")

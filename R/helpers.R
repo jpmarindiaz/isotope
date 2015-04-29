@@ -85,7 +85,7 @@ filterBtnHtml <- function(d, filterCols = NULL){
 }
 
 #' @export
-sortBtnHtml <- function(d,sortCols = NULL){
+sortBtnHtml <- function(d,sortCols = NULL, sortTitle = 'Sort'){
   sortCols <- sortCols %||% names(d)
   buttons <- sortCols
   #<button class="button" data-sort-by="name">name</button>
@@ -96,7 +96,7 @@ sortBtnHtml <- function(d,sortCols = NULL){
     tags$button(bnames[[i]],class="button mb1",`data-sort-by`= b[[i]])
   }, b=buttons, bnames=names(buttons))
   sortDiv <- tags$div(id="sorts",class="button-group",
-                      tags$h3("Sort"),
+                      tags$h3(sortTitle),
                       tags$button("Original Order",
                                   class="button mb1",`data-sort-by`= "original-order"),
                       btnsHtml

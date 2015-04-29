@@ -5,7 +5,7 @@
 #' @import htmlwidgets
 #'
 #' @export
-isotope <- function(d, filterCols = NULL, sortCols = NULL, elemTpl = NULL, width = NULL, height = NULL) {
+isotope <- function(d, filterCols = NULL, sortCols = NULL, elemTpl = NULL, filterTitle = 'Filter', sortTitle = 'Sort',width = NULL, height = NULL) {
 
   # Data names properly formatted to use as item classes
   originalNames <- names(d)
@@ -27,7 +27,7 @@ isotope <- function(d, filterCols = NULL, sortCols = NULL, elemTpl = NULL, width
     filterBtns <- ''
   } else{
     if(is.null(names(filterCols))) names(filterCols) <- filterCols
-    filterBtns <- '<h3>Filter</h3><div id="select-car"></div>'
+    filterBtns <- paste0('<h3>',filterTitle,'</h3><div id="select-car"></div>')
   }
 
   if(is.null(sortCols)){
@@ -37,7 +37,7 @@ isotope <- function(d, filterCols = NULL, sortCols = NULL, elemTpl = NULL, width
   }else{
     sortData <- as.list(paste0(".",sortCols))
     names(sortData) <- sortCols
-    sortBtns <- sortBtnHtml(d,sortCols)
+    sortBtns <- sortBtnHtml(d,sortCols, sortTitle)
   }
 
   if(is.null(elemTpl)){

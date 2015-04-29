@@ -5,7 +5,8 @@
 \title{<Add Title>}
 \usage{
 isotope(d, filterCols = NULL, sortCols = NULL, elemTpl = NULL,
-  width = NULL, height = NULL)
+  filterTitle = "Filter", sortTitle = "Sort", width = NULL,
+  height = NULL)
 }
 \description{
 <Add Description>
