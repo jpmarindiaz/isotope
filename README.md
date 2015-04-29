@@ -12,3 +12,8 @@ Uses basscss.
 - Add width/height properties for elements
 - add language option
 - add custom css
+- Fix some layoutModes by adding height property to each item
+- Warn about sort buttons not present in template
+- Gallery cleanup in isotope.js initialization
+- Add more separators for multiple values per column currently only "," is supported.
+- 

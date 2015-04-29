@@ -1,10 +1,10 @@
 
-library(devtools)
-library(htmlwidgets)
-
-
-document()
-devtools::install()
+# library(devtools)
+# library(htmlwidgets)
+#
+#
+# document()
+# devtools::install()
 
 library(isotope)
 

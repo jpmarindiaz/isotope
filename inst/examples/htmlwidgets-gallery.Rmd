@@ -1,0 +1,24 @@
+---
+title: "Htmlwidgets Gallery with Isotope"
+author: "jpmarindiaz"
+date: "April 29, 2015"
+output: html_document
+---
+
+```{r}
+# devtools::install_github("jpmarindiaz/isotope")
+library(isotope)
+
+d <- read.csv(system.file("data/htmlwidgets-gallery.csv", package="isotope"),stringsAsFactors = FALSE)
+filterCols <- c('tags','status','author','jsLibIds')
+sortCols <- c("name","author","url")
+isotope(d, filterCols, sortCols)
+```
+
+You can also save the html and upload it to the web.
+
+```{r, echo=FALSE}
+s <- isotope(d, filterCols, sortCols)
+saveWidget(s,"index.html")
+```
+
