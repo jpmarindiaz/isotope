@@ -20,10 +20,12 @@ isotope <- function(d, layoutMode = "masonry", filterCols = NULL, sortCols = NUL
   names(d) <- gsub(".","-",names(d),fixed=TRUE)
 
   if(!is.null(sortCols)) {
+    if(!sortCols %in% originalNames) stop(sortCols must be one of names(d))
     sortCols <- names(d)[match(sortCols,originalNames)]
     names(sortCols) <- originalNames[match(sortCols,names(d))]
   }
   if(!is.null(filterCols)) {
+    if(!filterCols %in% originalNames) stop(filterCols must be one of names(d))
     filterCols <- names(d)[match(filterCols,originalNames)]
     names(filterCols) <- originalNames[match(filterCols,names(d))]
   }
