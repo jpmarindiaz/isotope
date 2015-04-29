@@ -5,7 +5,7 @@
 #' @import htmlwidgets
 #'
 #' @export
-isotope <- function(d, layoutMode = "masonry", filterCols = NULL, sortCols = NULL, elemTpl = NULL, lang = "en",width = NULL, height = NULL) {
+isotope <- function(d, layoutMode = "masonry", filterCols = NULL, sortCols = NULL, elemTpl = NULL, lang = "en", ncols=4, style = "", width = NULL, height = NULL) {
 
   if(lang == "es"){
     filterTitle <- 'Filtrar por'
@@ -20,12 +20,12 @@ isotope <- function(d, layoutMode = "masonry", filterCols = NULL, sortCols = NUL
   names(d) <- gsub(".","-",names(d),fixed=TRUE)
 
   if(!is.null(sortCols)) {
-    if(!sortCols %in% originalNames) stop(sortCols must be one of names(d))
+    if(!all(sortCols %in% originalNames)) stop("sortCols must be one of names(d)")
     sortCols <- names(d)[match(sortCols,originalNames)]
     names(sortCols) <- originalNames[match(sortCols,names(d))]
   }
   if(!is.null(filterCols)) {
-    if(!filterCols %in% originalNames) stop(filterCols must be one of names(d))
+    if(!all(filterCols %in% originalNames)) stop("filterCols must be one of names(d)")
     filterCols <- names(d)[match(filterCols,originalNames)]
     names(filterCols) <- originalNames[match(filterCols,names(d))]
   }
@@ -60,7 +60,7 @@ isotope <- function(d, layoutMode = "masonry", filterCols = NULL, sortCols = NUL
     message("Using default element template")
     items <- htmlItems(d,filterCols)
   } else{
-    items <- htmlItems(d,filterCols,elemTpl)
+    items <- htmlItems(d,filterCols,elemTpl,ncols)
   }
 
   ## Selectize
@@ -82,7 +82,8 @@ isotope <- function(d, layoutMode = "masonry", filterCols = NULL, sortCols = NUL
     items = items,
     selectizeOptions = selectizeOptions,
     selectizeOptgroups = selectizeOptgroups,
-    layoutMode = layoutMode
+    layoutMode = layoutMode,
+    style = style
   )
 
   # create widget

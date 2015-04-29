@@ -4,7 +4,7 @@
 \alias{isotopeOutput}
 \title{Widget output function for use in Shiny}
 \usage{
-isotopeOutput(outputId, width = "100\%", height = "400px")
+isotopeOutput(outputId, width = "100\%", height = "600px")
 }
 \description{
 Widget output function for use in Shiny

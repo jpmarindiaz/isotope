@@ -2,23 +2,64 @@
 title: "Htmlwidgets Gallery with Isotope"
 author: "jpmarindiaz"
 date: "April 29, 2015"
-output: html_document
+output: 
+  html_document:
+    keep_md: true
 ---
 
-```{r}
+```{r, message=FALSE}
 # devtools::install_github("jpmarindiaz/isotope")
 library(isotope)
 
 d <- read.csv(system.file("data/htmlwidgets-gallery.csv", package="isotope"),stringsAsFactors = FALSE)
-filterCols <- c('tags','status','author','jsLibIds')
-sortCols <- c("name","author","url")
-isotope(d, filterCols = filterCols, sortCols = sortCols)
-```
+d <- d[c('tags','release','author','jsLibIds','name','thumbnail')]
+filterCols <- c('tags','release','author','jsLibIds')
+sortCols <- c("name","author")
 
-You can also save the html and upload it to the web.
+tpl <- '
+<div class="myItem">
+  <h3 class="name background"><span>{{name}}</span></h3>
+  <div class="container">
+    <div>
+      <img src={{thumbnail}} width="100%"/>
+    </div>
+    <p class="url"><small><a href="{{url}}">Go to project page!</a></small></p>
+    <p class="author"> <strong>Author:</strong> <a href="http://github.com/{{author}}">{{author}}</a> </p>
+    <p><strong>Tags:</strong>{{tags}}</p>
+    <div class="jsLibIds"><em>JS Libraries:</em> {{jsLibIds}}</div>
+  </div>
+</div>
+'
 
-```{r, echo=FALSE}
-s <- isotope(d, filterCols, sortCols)
+css <- '
+.myItem{
+  margin:5px;
+  border: 1px solid rgb(108, 136, 186);
+}
+.container {
+  background: #fafafa;
+  padding: 10px;
+}
+.myItem h3{
+margin: 0px;
+text-align: center;
+background-color: rgb(108, 136, 186);
+color: white
+}
+a {
+    color: rgb(108, 136, 186);
+}
+
+
+'
+
+isotope(d, filterCols = filterCols, sortCols = sortCols, elemTpl = tpl, style = css)
+
+s <- isotope(d, filterCols = filterCols, sortCols = sortCols, elemTpl = tpl, style = css) 
 saveWidget(s,"index.html")
+
 ```
+
+
+
 

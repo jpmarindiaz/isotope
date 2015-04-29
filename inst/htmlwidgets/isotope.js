@@ -26,6 +26,10 @@ HTMLWidgets.widget({
 
     renderValue: function(el, x, instance) {
 
+        var style = x.style;
+        var style = "<style>" + style + "</style>" ;
+        $(style).appendTo("body");
+
         $("#controls").append(x.filterBtns);
         $("#controls").append(x.sortBtns);
         $("#isotope-items").append(x.items);

@@ -1,15 +1,15 @@
-# Isotope Htmlwidget for R
+---
+title: "Htmlwidgets Gallery with Isotope"
+author: "jpmarindiaz"
+date: "April 29, 2015"
+output: 
+  html_document:
+    keep_md: true
+---
 
-[Isotope](http://isotope.metafizzy.co/) layout library straight from R to render Data Frames as interactive galleries.
-It handles sortings, filtering and custom item html templates.
-Uses basscss.
-
-# How to
 
 If you provide filterCols you can select which columns to use as filters.
-
 If you provide sortCols you can select which columns to use to sort the items.
-
 You can also provide custom html templates to render the items.
 
 ```{r, message=FALSE}
@@ -37,19 +37,3 @@ isotope(d, filterCols = filterCols, sortCols = sortCols, lang = 'es', elemTpl = 
 
 ```
 
-
-
-
-# Todo
-
-- Sort opts: Button names, original-order(add/remove, lang)
-- style sort buttons
-- fix layout when resizing
-- Add width/height properties for elements
-- add language option
-- add custom css
-- Fix some layoutModes by adding height property to each item
-- Warn about sort buttons not present in template
-- Gallery cleanup in isotope.js initialization
-- Add more separators for multiple values per column currently only "," is supported.
-- Basscss optional for item styling and not global styling.

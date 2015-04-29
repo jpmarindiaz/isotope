@@ -3,12 +3,17 @@
 # library(htmlwidgets)
 #
 #
-# document()
-# devtools::install()
+document()
+devtools::install()
 
-library(isotope)
 
-d <- read.csv("inst/data/candidatos2.csv", stringsAsFactors = FALSE)
+
+
+
+
+
+
+d <- read.csv("inst/data/candidatos.csv", stringsAsFactors = FALSE)
 
 filterCols <- c("genero","profesiones", "niveldeestudios","talante", "maspoliticoquetecnico","masmicroquemacrogerente","cambiamejoramodelo", "pragmaticoideologico","visionpais")
 sortCols <- c("nombre","apoyosenadores","apoyorepresentantes")
@@ -27,7 +32,7 @@ tpl <- '
 </div>
 '
 
-isotope(d, layoutMode = 'fitRows', filterCols = filterCols,elemTpl = tpl)
+isotope(d, layoutMode = 'fitRows', filterCols = filterCols,elemTpl = tpl,ncols=3)
 
 
 
