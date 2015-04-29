@@ -13,12 +13,17 @@ d <- read.csv("inst/data/retail-sku-sample.csv",stringsAsFactors = FALSE)
 
 sorts <- names(d)
 #names(sorts) <- paste("new ",names(d))
-isotope(d, sortCols = sorts[1:4])
+isotope(d, sortCols = sorts[1:4], lang = 'es')
 
-isotope(d)
+isotope(d, layoutMode = 'fitColumns')
+isotope(d, layoutMode = 'fitRows')
+isotope(d, layoutMode = 'packery')
+isotope(d, layoutMode = 'masonry')
+isotope(d, layoutMode = 'cellsByColumn')
+isotope(d, layoutMode = 'vertical')
 isotope(d, filterCols = sorts[3:6])
 isotope(d, filterCols = names(d), sortCols = names(d))
-isotope(d, filterCols = names(d), sortCols = names(d), filterTitle = "Filtrar por", sortTitle = 'Ordenar por')
+isotope(d, filterCols = names(d), sortCols = names(d), lang='es')
 
 
 l <- yaml.load_file("inst/data/htmlwidgets.yaml")

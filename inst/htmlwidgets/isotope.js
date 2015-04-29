@@ -7,9 +7,11 @@ HTMLWidgets.widget({
 
         $(el).append('<div id="controls"></div>');
         $(el).append('<div id="isotope-items"></div>');
+        
+        
+
         var iso = new Isotope('#isotope-items', {
-            itemSelector: '.element-item',
-            layoutMode: 'fitRows'
+            itemSelector: '.element-item'
         });
         // console.log(iso.options.getSortData)
         return ({
@@ -28,11 +30,10 @@ HTMLWidgets.widget({
         $("#controls").append(x.sortBtns);
         $("#isotope-items").append(x.items);
 
+        var layoutMode = x.layoutMode;
+
         var sortData = x.sortData;
-        // var sortData = {
-        //     name: '.name',
-        //     url: '.url'
-        // };
+
         console.log(sortData)
 
         // If sort: Initialize sort data
@@ -40,7 +41,7 @@ HTMLWidgets.widget({
         instance.iso.destroy();
         instance.iso = new Isotope('#isotope-items', {
             itemSelector: '.element-item',
-            layoutMode: 'fitRows',
+            layoutMode: layoutMode,
             getSortData: sortData
         });
 

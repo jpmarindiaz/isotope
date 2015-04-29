@@ -4,9 +4,8 @@
 \alias{isotope}
 \title{<Add Title>}
 \usage{
-isotope(d, filterCols = NULL, sortCols = NULL, elemTpl = NULL,
-  filterTitle = "Filter", sortTitle = "Sort", width = NULL,
-  height = NULL)
+isotope(d, layoutMode = "masonry", filterCols = NULL, sortCols = NULL,
+  elemTpl = NULL, lang = "en", width = NULL, height = NULL)
 }
 \description{
 <Add Description>

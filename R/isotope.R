@@ -5,7 +5,15 @@
 #' @import htmlwidgets
 #'
 #' @export
-isotope <- function(d, filterCols = NULL, sortCols = NULL, elemTpl = NULL, filterTitle = 'Filter', sortTitle = 'Sort',width = NULL, height = NULL) {
+isotope <- function(d, layoutMode = "masonry", filterCols = NULL, sortCols = NULL, elemTpl = NULL, lang = "en",width = NULL, height = NULL) {
+
+  if(lang == "es"){
+    filterTitle <- 'Filtrar por'
+    sortTitle <- 'Ordenar por'
+  }else{
+    filterTitle <- 'Filter'
+    sortTitle <- 'Sort'
+  }
 
   # Data names properly formatted to use as item classes
   originalNames <- names(d)
@@ -19,6 +27,12 @@ isotope <- function(d, filterCols = NULL, sortCols = NULL, elemTpl = NULL, filte
     filterCols <- names(d)[match(filterCols,originalNames)]
     names(filterCols) <- originalNames[match(filterCols,names(d))]
   }
+
+  availableLayoutModes <- c('masonry','fitRows','cellsByRow','vertical','packery',
+                            'masonryHorizontal','fitColumns','cellsByColumn','horizontal')
+  availableLayoutModes <- c('masonry','fitRows','vertical')
+  if(!layoutMode %in% availableLayoutModes)
+    stop("layoutMode must be one of the following: 'masonry','fitRows','vertical'")
 
 #   filterCols <- names(d)[match(filterCols,originalNames)]
 
@@ -65,7 +79,8 @@ isotope <- function(d, filterCols = NULL, sortCols = NULL, elemTpl = NULL, filte
     sortData = sortData,
     items = items,
     selectizeOptions = selectizeOptions,
-    selectizeOptgroups = selectizeOptgroups
+    selectizeOptgroups = selectizeOptgroups,
+    layoutMode = layoutMode
   )
 
   # create widget
