@@ -8,6 +8,32 @@ devtools::install()
 
 library(isotope)
 
+d <- read.csv("inst/data/candidatos2.csv", stringsAsFactors = FALSE)
+
+filterCols <- c("genero","profesiones", "niveldeestudios","talante", "maspoliticoquetecnico","masmicroquemacrogerente","cambiamejoramodelo", "pragmaticoideologico","visionpais")
+sortCols <- c("nombre","apoyosenadores","apoyorepresentantes")
+
+isotope(d, filterCols = filterCols, sortCols = sortCols, lang = 'es')
+
+tpl <- '
+<div class="m1">
+  <div class="container p1 border bg-lighter-gray">
+    <h3 class={{nombre}}>{{nombre}}</h3>
+    <div style="width:125px; height: 125px; margin:auto">
+      <img src={{foto}} class="circle" width="100px"/>
+    </div>
+    <p>{{profesiones}}{{genero}},{{niveldeestudios}}</p>
+  </div>
+</div>
+'
+
+isotope(d, layoutMode = 'fitRows', filterCols = filterCols,elemTpl = tpl)
+
+
+
+
+
+
 d <- read.csv("inst/data/retail-sku-sample.csv",stringsAsFactors = FALSE)
 #names(d) <- gsub(".","-",names(d),fixed=TRUE)
 

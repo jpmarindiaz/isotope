@@ -96,7 +96,7 @@ isotope <- function(d, layoutMode = "masonry", filterCols = NULL, sortCols = NUL
 #' Widget output function for use in Shiny
 #'
 #' @export
-isotopeOutput <- function(outputId, width = '100%', height = '400px'){
+isotopeOutput <- function(outputId, width = '100%', height = '600px'){
   shinyWidgetOutput(outputId, 'isotope', width, height, package = 'isotope')
 }
 

@@ -53,6 +53,11 @@ HTMLWidgets.widget({
         // var elems = instance.iso.getItemElements()
         // console.log("POST",elems)
 
+// // layout Isotope again after all images have loaded
+// imagesLoaded( el, function() {
+//   instance.iso.layout();
+// });
+
         instance.iso.arrange();
 
         // bind filter button click
