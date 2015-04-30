@@ -14,7 +14,7 @@ library(isotope)
 d <- read.csv("data/htmlwidgets-gallery.csv", stringsAsFactors = FALSE)
 #l <- yaml.load_file("data/htmlwidgets.yaml")
 #d <- list_to_df(l)
-d <- d[c('tags','release','author','jsLibIds','name','thumbnail')]
+d <- d[c('tags','release','author','jsLibIds','name','thumbnail','githubUrl')]
 filterCols <- c('tags','release','author','jsLibIds')
 sortCols <- c("name","author")
 
@@ -25,7 +25,7 @@ tpl <- '
     <div>
       <img src={{thumbnail}} width="100%"/>
     </div>
-    <p class="url"><small><a href="{{url}}">Go to project page!</a></small></p>
+    <p class="githubUrl"><small><a href="{{githubUrl}}" target="_blank">Go to project page!</a></small></p>
     <p class="author"> <strong>Author:</strong> <a href="http://github.com/{{author}}">{{author}}</a> </p>
     <p><strong>Tags:</strong>{{tags}}</p>
     <div class="jsLibIds"><em>JS Libraries:</em> {{jsLibIds}}</div>
