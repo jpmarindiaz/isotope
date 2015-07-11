@@ -5,7 +5,7 @@
 #' @import htmlwidgets
 #'
 #' @export
-isotope <- function(d, layoutMode = "masonry", filterCols = NULL, sortCols = NULL, elemTpl = NULL, lang = "en", ncols=4, style = "", width = NULL, height = NULL) {
+isotope <- function(d, layoutMode = "masonry", filterCols = NULL, sortCols = NULL, elemTpl = NULL, lang = "en", ncols=4, style = NULL, width = NULL, height = NULL) {
 
   if(lang == "es"){
     filterTitle <- 'Filtrar por'
@@ -63,6 +63,14 @@ isotope <- function(d, layoutMode = "masonry", filterCols = NULL, sortCols = NUL
     items <- htmlItems(d,filterCols,elemTpl,ncols)
   }
 
+  if(is.null(style)){
+    style <- ".defaultBoxOut
+    {border:1px solid black;
+    border-radius: 2px;
+    padding:5px;
+    margin:5px
+    }"
+  }
   ## Selectize
   if(is.null(filterCols)){
     selectizeOptions <- list()

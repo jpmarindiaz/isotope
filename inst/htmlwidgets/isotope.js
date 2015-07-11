@@ -28,7 +28,7 @@ HTMLWidgets.widget({
     renderValue: function(el, x, instance) {
 
         var style = x.style;
-        var style = "<style>" + style + "</style>" ;
+        var style = "<style> body{overflow:auto !important;}" + style + "</style>" ;
         $(style).appendTo("body");
 
         $("#controls").append(x.filterBtns);

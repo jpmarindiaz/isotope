@@ -13,7 +13,7 @@ getStdTpl <- function(d, filterCols = NULL, sortCols = NULL){
     x <- gsub("|__","}}",x,fixed=TRUE)
     x
   })
-  paste('<div class="m1"><div class="container p1 border bg-lighter-gray">',
+  paste('<div class="defaultBoxOut"><div class="defaultBoxIn">',
         paste(unlist(l), collapse="\n"),
         '</div></div>')
 }
