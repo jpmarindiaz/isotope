@@ -30,9 +30,7 @@ isotope <- function(d, layoutMode = "masonry", filterCols = NULL, sortCols = NUL
     names(filterCols) <- originalNames[match(filterCols,names(d))]
   }
 
-  availableLayoutModes <- c('masonry','fitRows','cellsByRow','vertical','packery',
-                            'masonryHorizontal','fitColumns','cellsByColumn','horizontal')
-  availableLayoutModes <- c('masonry','fitRows','vertical')
+  availableLayoutModes <- getAvailableLayoutModes()
   if(!layoutMode %in% availableLayoutModes)
     stop("layoutMode must be one of the following: 'masonry','fitRows','vertical'")
 

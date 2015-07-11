@@ -1,4 +1,12 @@
 #' @export
+getAvailableLayoutModes <- function(){
+  availableLayoutModes <- c('masonry','fitRows','cellsByRow','vertical','packery',
+     'masonryHorizontal','fitColumns','cellsByColumn','horizontal')
+  #availableLayoutModes <- c('masonry','fitRows','vertical')
+  availableLayoutModes
+}
+
+#' @export
 getStdTpl <- function(d, filterCols = NULL, sortCols = NULL){
 
   if(is.null(filterCols) && is.null(sortCols)){

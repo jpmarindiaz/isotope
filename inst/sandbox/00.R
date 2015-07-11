@@ -13,7 +13,10 @@ sortCols <- c("población","gdpPerCapita")
 isotope(d[-1], filterCols = filterCols, sortCols = sortCols, lang = 'es')
 
 getStdTpl(d)
-
+layoutModes <- getAvailableLayoutModes()
+i <- 1
+layoutModes[i]
+isotope(d[-1], layoutMode = layoutModes[i], filterCols = filterCols, sortCols = sortCols, lang = 'es')
 
 
 
