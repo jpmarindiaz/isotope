@@ -5,18 +5,19 @@ HTMLWidgets.widget({
 
     initialize: function(el, width, height) {
 
-        $(el).append('<div id="controls"></div>');
-        $(el).append('<div id="isotope-items"></div>');
-        
+
+        // $(el).append('<div id="isotopeControls"></div>');
+        // $(el).append('<div id="isotope-items"></div>');
         
 
-        var iso = new Isotope('#isotope-items', {
-            itemSelector: '.element-item'
-        });
-        // console.log(iso.options.getSortData)
-        return ({
-            iso: iso
-        })
+        // var iso = new Isotope('#isotope-items', {
+        //     itemSelector: '.element-item'
+        // });
+        // // console.log(iso.options.getSortData)
+        // return ({
+        //     iso: iso
+        // })
+        return({})
 
     },
 
@@ -27,12 +28,24 @@ HTMLWidgets.widget({
 
     renderValue: function(el, x, instance) {
 
+        $( "#isotopeControls" ).remove();
+        $( "#isotope-items" ).remove();
+        
+        $(el).append('<div id="isotopeControls"></div>');
+        $(el).append('<div id="isotope-items"></div>');
+        var iso = new Isotope('#isotope-items', {
+            itemSelector: '.element-item'
+        });
+
+        instance.iso = iso;
+
+
         var style = x.style;
         var style = "<style> body{overflow:auto !important;}" + style + "</style>" ;
         $(style).appendTo("body");
 
-        $("#controls").append(x.filterBtns);
-        $("#controls").append(x.sortBtns);
+        $("#isotopeControls").append(x.filterBtns);
+        $("#isotopeControls").append(x.sortBtns);
         $("#isotope-items").append(x.items);
 
         var layoutMode = x.layoutMode;

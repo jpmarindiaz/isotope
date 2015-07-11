@@ -15,6 +15,13 @@ isotope(d[-1], filterCols = filterCols, sortCols = sortCols, lang = 'es')
 
 
 
+
+
+
+
+
+
+
 d <- read.csv("inst/data/candidatos.csv", stringsAsFactors = FALSE)
 
 filterCols <- c("genero","profesiones", "niveldeestudios","talante", "maspoliticoquetecnico","masmicroquemacrogerente","cambiamejoramodelo", "pragmaticoideologico","visionpais")
