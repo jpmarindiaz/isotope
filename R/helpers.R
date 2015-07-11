@@ -2,7 +2,7 @@
 getAvailableLayoutModes <- function(){
   availableLayoutModes <- c('masonry','fitRows','cellsByRow','vertical','packery',
      'masonryHorizontal','fitColumns','cellsByColumn','horizontal')
-  #availableLayoutModes <- c('masonry','fitRows','vertical')
+  availableLayoutModes <- c('masonry','fitRows','vertical')
   availableLayoutModes
 }
 
