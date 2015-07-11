@@ -33,7 +33,7 @@ tpl <- '
   </div>
 </div>
 '
-isotope(d, filterCols = filterCols, sortCols = sortCols, lang = 'es', elemTpl = tpl, ncols=3)
+isotope(d, filterCols = filterCols, sortCols = sortCols, lang = 'es', elemTpl = tpl)
 
 ```
 
@@ -44,12 +44,8 @@ isotope(d, filterCols = filterCols, sortCols = sortCols, lang = 'es', elemTpl = 
 
 - Sort opts: Button names, original-order(add/remove, lang)
 - style sort buttons
-- fix layout when resizing
 - Add width/height properties for elements
-- add language option
 - add custom css
 - Fix some layoutModes by adding height property to each item
 - Warn about sort buttons not present in template
-- Gallery cleanup in isotope.js initialization
 - Add more separators for multiple values per column currently only "," is supported.
-- Basscss optional for item styling and not global styling.
