@@ -42,7 +42,8 @@ htmlItems <- function(d, filterCols, elemTpl = NULL, ncols = 4){
   dtmp <- as.data.frame(mapply(c,lFilters))
   elem <- unite_(dtmp,"classes",names(dtmp),sep=" ")
   elemClass <- paste("element-item",elem$classes)
-  tpl <- paste0('<div class="{{itemClasses}}" style="width:', round(100/ncols),'%" >',elemTpl,'\n</div>')
+  #tpl <- paste0('<div class="{{itemClasses}}" style="width:', round(100/ncols),'%" >',elemTpl,'\n</div>')
+  tpl <- paste0('<div class="{{itemClasses}}" >',elemTpl,'\n</div>')
   d$itemClasses <- elemClass
   whisker.render.df(tpl,d)
 

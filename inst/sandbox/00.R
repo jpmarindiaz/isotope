@@ -1,17 +1,11 @@
 
-# library(devtools)
-# library(htmlwidgets)
-#
-#
+library(devtools)
+load_all()
 document()
 devtools::install()
 
 
-
-
-
-
-
+library(isotope)
 
 d <- read.csv("inst/data/candidatos.csv", stringsAsFactors = FALSE)
 
@@ -23,7 +17,7 @@ isotope(d, filterCols = filterCols, sortCols = sortCols, lang = 'es')
 tpl <- '
 <div class="m1">
   <div class="container p1 border bg-lighter-gray">
-    <h3 class={{nombre}}>{{nombre}}</h3>
+    <p class={{nombre}}>{{nombre}}</p>
     <div style="width:125px; height: 125px; margin:auto">
       <img src={{foto}} class="circle" width="100px"/>
     </div>
@@ -31,8 +25,8 @@ tpl <- '
   </div>
 </div>
 '
-
-isotope(d, layoutMode = 'fitRows', filterCols = filterCols,elemTpl = tpl,ncols=3)
+style <- '.m1{background-color: red}'
+isotope(d, layoutMode = 'fitRows', filterCols = filterCols,elemTpl = tpl,style = style)
 
 
 

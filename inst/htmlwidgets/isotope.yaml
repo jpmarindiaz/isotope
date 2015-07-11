@@ -12,7 +12,7 @@ dependencies:
     src: "htmlwidgets/lib/selectize-v0.12.1"
     script: selectize.js
     stylesheet: selectize.default.css
-  # - name: basscss
+  # - name: bootstrap
   #   version: 2.2.0
   #   src: "htmlwidgets/lib/basscss"
   #   stylesheet: basscss.css

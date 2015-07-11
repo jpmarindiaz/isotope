@@ -92,6 +92,9 @@ isotope <- function(d, layoutMode = "masonry", filterCols = NULL, sortCols = NUL
     x,
     width = width,
     height = height,
+    sizingPolicy = htmlwidgets::sizingPolicy(
+      browser.fill = TRUE
+    ),
     package = 'isotope'
   )
 }

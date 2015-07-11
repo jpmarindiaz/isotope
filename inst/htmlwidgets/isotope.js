@@ -22,6 +22,7 @@ HTMLWidgets.widget({
 
     resize: function(el, width, height, instance) {
         // instance.iso.bindResize();
+        //instance.iso.reloadItems();
     },
 
     renderValue: function(el, x, instance) {
@@ -153,7 +154,7 @@ HTMLWidgets.widget({
             });
           });
 
-
+        instance.iso.bindResize();
 
 
 
