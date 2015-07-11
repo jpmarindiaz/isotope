@@ -12,7 +12,7 @@ filterCols <- c("idioma","zonaHoraria")
 sortCols <- c("población","gdpPerCapita")
 isotope(d[-1], filterCols = filterCols, sortCols = sortCols, lang = 'es')
 
-
+getStdTpl(d)
 
 
 

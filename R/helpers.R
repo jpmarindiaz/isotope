@@ -1,3 +1,4 @@
+#' @export
 getStdTpl <- function(d, filterCols = NULL, sortCols = NULL){
 
   if(is.null(filterCols) && is.null(sortCols)){
