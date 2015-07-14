@@ -16,7 +16,10 @@ getStdTpl <- function(d, filterCols = NULL, sortCols = NULL){
   }
   nms <- nms[!is.na(nms)]
   l <- lapply(nms,function(n){
-    tpl <- '<p class="{{n}}"><strong>{{n}}: </strong>__|{{n}}|__</p>'
+    if(n == "imageUrl")
+      tpl <-  '<img class="{{n}}" src="__|{{n}}|__" width="20px"/>'
+    else
+      tpl <- '<p class="{{n}}"><strong>{{n}}: </strong>__|{{n}}|__</p>'
     x <- whisker.render(tpl,list(n=n))
     x <- gsub("__|","{{",x,fixed=TRUE)
     x <- gsub("|__","}}",x,fixed=TRUE)

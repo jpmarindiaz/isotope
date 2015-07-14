@@ -7,10 +7,10 @@ devtools::install()
 
 library(isotope)
 
-d <- read.csv("inst/data/latamCountries.csv", stringsAsFactors = FALSE)
+d <- read.csv("inst/data/southAmericaCountries.csv", stringsAsFactors = FALSE)
 filterCols <- c("idioma","zonaHoraria")
 sortCols <- c("población","gdpPerCapita")
-isotope(d[-1], filterCols = filterCols, sortCols = sortCols, lang = 'es')
+isotope(d, filterCols = filterCols, sortCols = sortCols, lang = 'es')
 
 getStdTpl(d)
 layoutModes <- getAvailableLayoutModes()
