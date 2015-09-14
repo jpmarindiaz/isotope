@@ -1,7 +1,7 @@
 #' @export
 getAvailableLayoutModes <- function(){
   availableLayoutModes <- c('masonry','fitRows','cellsByRow','vertical','packery',
-     'masonryHorizontal','fitColumns','cellsByColumn','horizontal')
+                            'masonryHorizontal','fitColumns','cellsByColumn','horizontal')
   availableLayoutModes <- c('masonry','fitRows','vertical','packery')
   availableLayoutModes
 }
@@ -41,16 +41,21 @@ htmlItems <- function(d, filterCols, elemTpl = NULL, ncols = 4){
 
   ## TODO
   #Apply Filter classes
-   #filterCols <- c('tags','status','author')
+  #filterCols <- c('tags','status','author')
 
-   lFilters <- lapply(names(d),function(col){
-      catFilters <-lapply(d[,col],function(x){
-        x <- as.character(nullToEmpty(x, empty="empty"))
-        filterRowValues <- c(col,strsplit(x,",")[[1]])
-        elemClass <- paste(filterRowValues,collapse = " ")
-      })
-      catFilters
+  #names(d) <- gsub(" ","-",names(d),fixed= TRUE)
+
+  lFilters <- lapply(filterCols,function(col){
+    catFilters <-lapply(d[,col],function(x){
+      x <- as.character(nullToEmpty(x, empty="empty"))
+      #filterRowValues <- c(col,strsplit(x,",")[[1]]) ## OJO para los tags separados con ,
+      filterRowValues <- gsub(" ","-",x,fixed= TRUE)
+      elemClass <- paste(filterRowValues,collapse = "-")
+      col <- gsub(" ","-",col,fixed= TRUE)
+      paste(col,elemClass,sep='-')
     })
+    catFilters
+  })
   dtmp <- as.data.frame(mapply(c,lFilters))
   elem <- unite_(dtmp,"classes",names(dtmp),sep=" ")
   elemClass <- paste("element-item",elem$classes)
@@ -58,7 +63,6 @@ htmlItems <- function(d, filterCols, elemTpl = NULL, ncols = 4){
   tpl <- paste0('<div class="{{itemClasses}}" >',elemTpl,'\n</div>')
   d$itemClasses <- elemClass
   whisker.render.df(tpl,d)
-
 }
 
 #' @export
@@ -72,14 +76,14 @@ filterBtnHtml <- function(d, filterCols = NULL){
       #filterRowValues <- paste(col,strsplit(x,",")[[1]],sep"-")
       filterRowValues <- c(strsplit(x,",")[[1]])
       paste0(".",c(col,filterRowValues),collapse = "")
-      })
-    l
     })
-#   names(buttons) <- filterCols
-#
-#   Map(function(b1){
-#
-#   },buttons)
+    l
+  })
+  #   names(buttons) <- filterCols
+  #
+  #   Map(function(b1){
+  #
+  #   },buttons)
 
   buttons <- unique(unlist(buttons))
 
@@ -91,7 +95,7 @@ filterBtnHtml <- function(d, filterCols = NULL){
                         #tags$button('All',class="is-checked",`data-filter`="*"),
                         tags$button('All',class="button",`data-filter`="*"),
                         btnsHtml
-                       )
+  )
   doRenderTags(filterDiv)
 }
 
@@ -140,6 +144,9 @@ selectizeOpts <- function(d, filterCols){
   optsDf <- optsDf[!duplicated(optsDf),]
   optsDf <- optsDf[with(optsDf,order(groupId,filterValueId)),]
   optsDf$filterValueLabel <- optsDf$filterValueId
+  optsDf$filterValueId <- gsub(" ","-",optsDf$filterValueId ,fixed= TRUE)
+  group <- gsub(" ","-",optsDf$groupId,fixed= TRUE)
+  optsDf$filterValueId <- paste(group,optsDf$filterValueId,sep="-")
   optsDf
 }
 
