@@ -5,7 +5,7 @@
 #' @import htmlwidgets
 #'
 #' @export
-isotope <- function(d, layoutMode = "masonry", filterCols = NULL, sortCols = NULL, elemTpl = NULL, lang = "en", ncols=4, style = NULL, width = NULL, height = NULL, filtersAsCols = FALSE, placeholder = "Seleccione Filtros") {
+isotope <- function(d, layoutMode = "masonry", filterCols = NULL, sortCols = NULL, elemTpl = NULL, lang = "en", ncols=4, style = NULL, width = NULL, height = NULL, filtersAsCols = FALSE, placeholder = "") {
 
   if(lang == "es"){
     filterTitle <- 'Filtrar por'
