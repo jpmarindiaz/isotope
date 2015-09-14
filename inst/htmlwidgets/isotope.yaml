@@ -20,6 +20,10 @@ dependencies:
     src: "htmlwidgets/lib/selectize-v0.12.1"
     script: selectize.js
     stylesheet: selectize.default.css
+  - name: iframeResizer
+    version: 2.8.1
+    src: "htmlwidgets/lib/iframeResizer-v2.8.1"
+    script: iframeSizer.contentWindow.js
   # - name: bootstrap
   #   version: 2.2.0
   #   src: "htmlwidgets/lib/basscss"

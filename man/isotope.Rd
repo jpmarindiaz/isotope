@@ -6,7 +6,8 @@
 \usage{
 isotope(d, layoutMode = "masonry", filterCols = NULL, sortCols = NULL,
   elemTpl = NULL, lang = "en", ncols = 4, style = NULL, width = NULL,
-  height = NULL)
+  height = NULL, filtersAsCols = FALSE,
+  placeholder = "Seleccione Filtros")
 }
 \description{
 <Add Description>

@@ -137,6 +137,7 @@ HTMLWidgets.widget({
             optgroupValueField: 'groupId',
             // optgroupOrder: ['chevrolet', 'dodge', 'audi'],
             searchField: ['filterValueLabel'],
+            placeholder: 'Click here to select ...',
             plugins: ['optgroup_columns','remove_button']
         };
 
@@ -144,8 +145,13 @@ HTMLWidgets.widget({
 
         var selectizeOpts = HTMLWidgets.dataframeToD3(x.selectizeOptions);
         var selectizeOptgroups = HTMLWidgets.dataframeToD3(x.selectizeOptgroups);
+        
         selOpts.options = selectizeOpts;
         selOpts.optgroups = selectizeOptgroups;
+        selOpts.placeholder = x.placeholder;
+        if(!x.filtersAsCols){
+            selOpts.plugins = ['remove_button'];
+        };
 
         var $select = $("#select-car").selectize(selOpts);
 

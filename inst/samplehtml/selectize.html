@@ -225,6 +225,8 @@ var $select = $("#select-car").selectize({
         // {id: 's4', make: 'audi', model: 'S4'},
         {id: 's8', make: 'audi', model: 'S8'},
         {id: 'tt', make: 'audi', model: 'TT'},
+        {id: 's8', make: 'audi2', model: 'S8'},
+        {id: 'tt', make: 'audi2', model: 'TT'},
         {id: 'avalanche', make: 'chevrolet', model: 'Avalanche'},
         {id: 'aveo', make: 'chevrolet', model: 'Aveo'},
         {id: 'cobalt', make: 'chevrolet', model: 'Cobalt'},
@@ -234,9 +236,12 @@ var $select = $("#select-car").selectize({
         {id: 'trail-blazer', make: 'chevrolet', model: 'TrailBlazer'},
     ],
     optgroups: [
+        {id: 'tags2', name: 'Tags2'},
         {id: 'tags', name: 'Tags'},
         {id: 'dodge', name: 'Dodge'},
-        {id: 'audi', name: 'Audi'},
+        {id: 'audi', name: 'Audi2'},
+        {id: 'dodge2', name: 'Dodge2'},
+        {id: 'audi2', name: 'Audi2'},
         {id: 'chevrolet', name: 'Chevrolet'}
     ],
     labelField: 'model',
@@ -244,7 +249,7 @@ var $select = $("#select-car").selectize({
     optgroupField: 'make',
     optgroupLabelField: 'name',
     optgroupValueField: 'id',
-    optgroupOrder: ['chevrolet', 'dodge', 'audi'],
+    optgroupOrder: ['chevrolet', 'dodge', 'audi','tags2'],
     searchField: ['model'],
     plugins: ['optgroup_columns','remove_button']
     // ,
