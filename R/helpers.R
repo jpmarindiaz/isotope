@@ -6,6 +6,27 @@ getAvailableLayoutModes <- function(){
   availableLayoutModes
 }
 
+#
+# #' @export
+# getFilterClasses <- function(d, filterCols = NULL){
+#
+#   nms <- filterCols
+#   l <- lapply(nms,function(n){
+#     tpl <- '<p class="{n}"></p>'
+#     n <- gsub("[[:punct:] ]","-",n)
+#     pystr_format(tpl,n=n)
+#     x <- whisker.render(tpl,list(n=n))
+#     x <- gsub("__|","{{",x,fixed=TRUE)
+#     x <- gsub("|__","}}",x,fixed=TRUE)
+#     x
+#   })
+#   paste('<div class="defaultBoxOut"><div class="defaultBoxIn">',
+#         paste(unlist(l), collapse="\n"),
+#         '</div></div>')
+# }
+#
+
+
 #' @export
 getStdTpl <- function(d, filterCols = NULL, sortCols = NULL){
 
@@ -15,9 +36,10 @@ getStdTpl <- function(d, filterCols = NULL, sortCols = NULL){
     nms <- union(filterCols,sortCols)
   }
   nms <- nms[!is.na(nms)]
+  #nms <- filterCols
   l <- lapply(nms,function(n){
     if(n == "imageUrl")
-      tpl <-  '<img class="{{n}}" src="__|{{n}}|__" width="20px"/>'
+      tpl <-  '<img class="{n1}" src="__|{{n2}}|__" width="20px"/>'
     else
       tpl <- '<p class="{{n}}"><strong>{{n}}: </strong>__|{{n}}|__</p>'
     x <- whisker.render(tpl,list(n=n))
@@ -49,7 +71,7 @@ htmlItems <- function(d, filterCols, elemTpl = NULL, ncols = 4){
     catFilters <-lapply(d[,col],function(x){
       x <- as.character(nullToEmpty(x, empty="empty"))
       #filterRowValues <- c(col,strsplit(x,",")[[1]]) ## OJO para los tags separados con ,
-      filterRowValues <- gsub(" ","-",x,fixed= TRUE)
+      filterRowValues <- gsub("[[:punct:] ]","-",x)
       elemClass <- paste(filterRowValues,collapse = "-")
       col <- gsub(" ","-",col,fixed= TRUE)
       paste(col,elemClass,sep='-')
@@ -74,7 +96,8 @@ filterBtnHtml <- function(d, filterCols = NULL){
     l <- lapply(d[,col],function(x){
       x <- nullToEmpty(x, empty="empty")
       #filterRowValues <- paste(col,strsplit(x,",")[[1]],sep"-")
-      filterRowValues <- c(strsplit(x,",")[[1]])
+      #filterRowValues <- c(strsplit(x,",")[[1]]) ### OJOOOO cuando están separados con ,
+      filterRowValues <- x
       paste0(".",c(col,filterRowValues),collapse = "")
     })
     l
@@ -136,7 +159,8 @@ selectizeOpts <- function(d, filterCols){
   optsDf <- optsDf[!duplicated(optsDf),]
   optsDf$filterValueId <- as.character(optsDf$filterValueId)
   optsDf <- ddply(optsDf, names(optsDf),function(d){
-    x <- strsplit(d$filterValueId,",")[[1]]
+    #x <- strsplit(d$filterValueId,",")[[1]] ## OJO when sep ,
+    x <- gsub("[[:punct:]]","",d$filterValueId)
     df <- data.frame(filterValueId = x, stringsAsFactors = FALSE)
     df$groupId <- d$groupId
     df

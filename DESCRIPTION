@@ -12,6 +12,7 @@ Depends:
   plyr,
   yaml,
   whisker,
-  htmltools
+  htmltools,
+  pystr
 License: GPL-3
 LazyData: true

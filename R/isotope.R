@@ -17,7 +17,7 @@ isotope <- function(d, layoutMode = "masonry", filterCols = NULL, sortCols = NUL
 
   # Data names properly formatted to use as item classes
   originalNames <- names(d)
-  names(d) <- gsub(".","-",names(d),fixed=TRUE)
+  names(d) <- gsub("[. ]","-",names(d))
 
   if(!is.null(sortCols)) {
     if(!all(sortCols %in% originalNames)) stop("sortCols must be one of names(d)")

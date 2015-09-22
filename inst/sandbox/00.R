@@ -7,12 +7,13 @@ devtools::install()
 
 library(isotope)
 
-d <- read.csv("inst/data/concejo-bogota-min0.csv")
+
+
+d <- read.csv("inst/data/concejo-bogota-min.csv")
 names(d) <- gsub("."," ",names(d),fixed= TRUE)
 filterCols <- c("Partido","Ha sido concejal","Trabajó con Petro","Vínculo al carrusel","Tiene padrino político","Es delfín","Ha ocupado cargos públicos")
 
 isotope(d, layoutMode = 'fitRows', filterCols = filterCols, lang = 'es',elemTpl = NULL,style = NULL, filtersAsCols = FALSE, placeholder = 'SEL FILTRO')
-
 
 
 d <- read.csv("inst/data/southAmericaCountries.csv", stringsAsFactors = FALSE)
